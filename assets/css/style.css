@@ -1,0 +1,150 @@
+/* General Elements*/
+body{
+	background-image: url("../images/diamond_background.jpg");
+	   min-height: 500px;
+    /* Set background image to fixed (don't scroll along with the page) */
+    background-attachment: fixed;
+    /* Center the background image */
+    background-position: center;
+    /* Set the background image to no repeat */
+    background-repeat: no-repeat;
+    /* Scale the background image to be as large as possible */
+    background-size: cover;
+    font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+	
+}
+div{
+	background-color: lightblue;
+	margin: 5px;
+	width: 30%;
+	padding: 10px;
+	border: solid 2px white;
+}
+
+	
+
+h1, h3, span{
+	font-weight: bold;
+	text-align: center;
+}
+img {
+
+	align-self: center;
+}
+
+h1{
+	font-size: 30pt;
+}
+ol{
+	list-style: decimal inside; 
+}
+ul {
+	list-style: disc inside;
+	text-indent: 20px;
+}
+/* Specfic Elements*/
+div.header, div.gems{
+	background-color: turquoise;
+
+}
+div.header, div.instructions, div.container{
+	width: 50%;
+}
+div.gems{
+	width: 95%;
+	align-content: center;
+}
+h4 {
+    display: none;
+    background-color: red;
+    padding: 20px;
+}
+
+.Hint:hover h4 {
+    display: block;
+}
+
+/* Classes */
+.container{
+	min-height: 300px;
+}
+.numberToMatch{
+	float: left;
+	width: 43%;
+	height: 50px;
+	
+}
+.winsAndLosses{
+	float: right;
+	width: 43%;
+	height: 50px;
+	}
+.userTotal{
+	float: left;
+	width: 43%;
+	height: 50px;}
+
+.Hint{
+	float: right;
+	width: 43%;
+	height: 50px;
+
+	
+}
+.gems{
+	clear: both;
+	float: center;
+	text-align: center;
+}
+
+.gems{
+	clear: both;
+	float: center;
+	text-align: center;
+}
+.gemImage{
+	height: 70px;
+	margin: 10px;
+
+}
+
+.helpImage{
+	height: 40px;
+	margin: 5px;
+	float: left;
+
+}
+
+
+#randomNumber{
+	font-weight: bold;
+}
+
+#finalTotal{
+	font-weight: bold;
+	}
+	#hint{
+	font-weight: bold;
+	}
+
+	#numberWins{
+	font-weight: bold;
+	}
+
+	#numberLosses{
+	font-weight: bold;
+	}
+
+/* IDs */
+#blue{
+	color: blue;
+}
+#green{
+	color: green;
+}
+#red{
+	color: red;
+}
+#yellow{
+	color: yellow;
+}
