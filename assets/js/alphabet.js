@@ -42,6 +42,7 @@ $(document).ready(function(){
 	assignLetterAndCallForGifToDiv();
 
 	function assignLetterAndCallForGifToDiv() {
+		clearDivs();
 		getFourRandomLettersIntoArray();
 		// we have 4 divs and 4 letters - select one of each and assign
 
@@ -57,8 +58,13 @@ $(document).ready(function(){
 			console.log("Div: " + thisDiv + " assigned letter: " + thisLetter + " using search: >" + thisSearchTerm + "<");
 
 			getGifAndAssignToDiv(thisSearchTerm, thisDiv);
-
 		}
+	}
+
+	function clearDivs() {
+		gameObject.divs.forEach(function(div) {
+			$(div).empty();
+		});
 	}
 
 	function getFourRandomLettersIntoArray() {
@@ -91,38 +97,48 @@ $(document).ready(function(){
         	method: "GET"
         }).done(function(response) {
 
-      	resultsObject = response.data;
-      	// TODO grab one from a randomized set
-      	$.each(resultsObject, function(key, value) {
-	        var movingUrl = value.images.fixed_height.url;
-	        var stillUrl = value.images.fixed_height_still.url;
-	        var rating = value.rating;
+	      	resultsObject = response.data;
+	      	// TODO grab one from a randomized set - using 10 for testing (so I can see how the search terms look... it's not good)
+	      	$.each(resultsObject, function(key, value) {
+		        var movingUrl = value.images.fixed_height.url;
+		        var stillUrl = value.images.fixed_height_still.url;
+		        var rating = value.rating;
 
-			if (rating = "G") { // kids game, let's keep it clean - can variable this later.  
-		        var thisP = $("<p>");
-		        thisP.text("Rating: " + rating.toUpperCase());
-		        var targetParent = $("#" + div);
-		        var thisDiv = $("<div>");
-		        var thisGif = $("<img>");
-		        thisDiv.attr("class", "div-css")
-		        thisGif.attr("src", movingUrl);
-		        thisGif.attr("still_url", stillUrl);
-		        thisGif.attr("moving_url", movingUrl);
-		        thisGif.attr("current_state", "moving")
-		        thisGif.attr("class", "gif");
-		        thisDiv.prepend(thisP);
-		        thisDiv.append(thisGif);
-		        targetParent.prepend(thisDiv);
-	    	}
-      	});
+				if (rating = "G") { // kids game, let's keep it clean - can variable this later.  
+			        var thisP = $("<p>");
+			        thisP.text("Rating: " + rating.toUpperCase());
+			        var targetParent = $("#" + div);
+			        var thisDiv = $("<div>");
+			        var thisGif = $("<img>");
+			        // thisDiv.attr("class", "div-css")
+			        thisGif.attr("src", movingUrl);
+			        thisGif.attr("still_url", stillUrl);
+			        thisGif.attr("moving_url", movingUrl);
+			        thisGif.attr("current_state", "moving")
+			        thisGif.attr("assigned_letter", searchTerm)
+			        thisGif.attr("class", "gif");
+			        thisDiv.prepend(thisP);
+			        thisDiv.append(thisGif);
+			        targetParent.prepend(thisDiv);
+		    	}
+	      	});
 
 		// TODO insure that we are in compliance with the rating requested (more gifs required here);
 		});
 
 	}
 
-	$("#clicky-container").on("click", ".clicky", function(){
+	$("#clicky-container").on("click", ".gif", function(){
 		console.log("received click on: " + this);
 		console.log(this);
+		console.log($(this).attr("assigned_letter"))
+		console.log("alphabet letter " + gameObject.alphabetGame.correctLetter);
+		if ($(this).attr("assigned_letter") === ("alphabet letter " + gameObject.alphabetGame.correctLetter)) {
+			computerSayThis("That was AWESOME!!!  You clicked the letter " + gameObject.alphabetGame.correctLetter);
+			assignLetterAndCallForGifToDiv();
+		}
+		else {
+			// TODO play a fun sound that is a 'nope'
+		}
 	});
 });
