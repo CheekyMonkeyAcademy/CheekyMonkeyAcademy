@@ -57,13 +57,19 @@ $(document).ready(function(){
 			// dunno, this is a bit of a work in progress.  
 			console.log("Div: " + thisDiv + " assigned letter: " + thisLetter + " using search: >" + thisSearchTerm + "<");
 
+
 			getGifAndAssignToDiv(thisSearchTerm, thisDiv);
 		}
+		// assign our 'winning' letter for this round.
+		gameObject.alphabetGame.correctLetter = gameObject.alphabetGame.fourRandomLettersArray[getRandomFrom(4)];
+		// voice active asking kids to find said letter
+		computerSayThis("Please click on the image for the letter " + gameObject.alphabetGame.correctLetter);
 	}
 
 	function clearDivs() {
 		gameObject.divs.forEach(function(div) {
-			$(div).empty();
+			$("#"+div).empty();
+			console.log("emptying: " + div)
 		});
 	}
 
@@ -72,6 +78,7 @@ $(document).ready(function(){
 		for (i = 0; i < 4; i++) {
 			gameObject.alphabetGame.fourRandomLettersArray.push(gameObject.alphabetGame.alphabetArray[getRandomFrom(26)]);
 			// TODO this can duplicate letters - do we want to eliminate that?  Or is a duplicate letter such a good thing?
+			// If we have randomized gifs inside of a letter I would almost leave the 'mulitple success' in.  Sometimes mulitple things ARE true in life.
 		}
 		console.log(gameObject.alphabetGame.fourRandomLettersArray);
 	}
@@ -90,7 +97,7 @@ $(document).ready(function(){
 	function getGifAndAssignToDiv(searchTerm, div) {
 		var resultsObject = {};
 		var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-    	searchTerm + "&api_key=dc6zaTOxFJmzC&limit=10"; // This should end up using 1 - maybe pull more and rotate based on a timer?
+    	searchTerm + "&api_key=dc6zaTOxFJmzC&limit=1"; // This should end up using 1 - maybe pull more and rotate based on a timer?
 
     	$.ajax({
         	url: queryURL,
