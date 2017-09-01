@@ -1,3 +1,9 @@
+body {
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/cheekyMonkeyImage.jpg");
+    background-size: cover;
+}
+
+
 .sidenav {
     height: 100%;
     width: 0;
@@ -20,7 +26,8 @@
     transition: 0.3s;
 }
 
-.sidenav a:hover, .offcanvas a:focus{
+.sidenav a:hover,
+.offcanvas a:focus {
     color: #f1f1f1;
 }
 
@@ -32,11 +39,18 @@
     margin-left: 50px;
 }
 
-/*h1 {
-    color:#123eef;
-}*/
+h1,
+h4 {
+    color: #123eef;
+}
+
+
 
 @media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
+    .sidenav {
+        padding-top: 15px;
+    }
+    .sidenav a {
+        font-size: 18px;
+    }
 }
