@@ -11,7 +11,7 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!-- style sheet -->
-    <link rel="stylesheet" type="text/css" href="#">
+    <link rel="stylesheet" type="text/css" href="assets/css/navBar.css">
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <!-- FireBase -->
@@ -22,58 +22,28 @@
 
 <body>
     <div class="container-fluid">
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="index.html">Home</a>
+            <a href="alphabet.html">Alphabet Game!</a>
+            <a href="colors.html">Colors Game</a>
+            <a href="shapes.html">Shapes Game</a>
+            <a href="numbers.html">Numbers Game</a>
+        </div>
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
         <div class="row">
             <div class="col-sm-12">
-                <nav class="navbar navbar-inverse">
-                    <div class="container-fluid">
-                        <div class="navbar-header">
-                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
-                                <span class="sr-only">Toggle navigation</span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
-                            <a class="navbar-brand" href="#">Brand</a>
-                        </div>
-                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
-                            <ul class="nav navbar-nav">
-                                <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-                                <li><a href="#">Link</a></li>
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                                    <ul class="dropdown-menu" role="menu">
-                                        <li><a href="#">Action</a></li>
-                                        <li><a href="#">Another action</a></li>
-                                        <li><a href="#">Something else here</a></li>
-                                        <li class="divider"></li>
-                                        <li><a href="#">Separated link</a></li>
-                                        <li class="divider"></li>
-                                        <li><a href="#">One more separated link</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                            <form class="navbar-form navbar-left" role="search">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Search">
-                                </div>
-                                <button type="submit" class="btn btn-default">Submit</button>
-                            </form>
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><a href="#">Link</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
                 <div class="text-center">
                     <h1><strong>Cheeky Monkey Academy</strong></h1>
                     <h4><strong>A CanBCheeky production</strong></h3>
-		</div>
-		</div>
-		</div>
-		<div class="row">
-			<div class="col-sm-4"></div>
-		</div>
-	</div>
+        </div>
+        </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4"></div>
+        </div>
+    </div>
+    <script type="text/javascript" src="assets/js/navBar.js"></script>
 
 </body>
 </html>
