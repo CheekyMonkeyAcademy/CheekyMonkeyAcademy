@@ -1,0 +1,26 @@
+* {
+
+}
+
+html {
+	height:100%;
+}
+
+body {
+
+}
+
+.height-50 {
+	height:50%;
+}
+
+#title {
+	background-color:rgba(0, 100, 255, 1);
+	color:white;
+	margin:0;
+	padding:10px;
+}
+
+.background-gray {
+	background-color:rgba(100, 100, 100, 1);
+}
