@@ -15,7 +15,61 @@
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <!-- FireBase -->
-    <!-- <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script> -->
+    <script src="https://cdn.firebase.com/libs/firebaseui/2.3.0/firebaseui.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+    <!-- <script type="text/javascript" src="assets\js\login-firebase.js"></script> -->
+        <script>
+        var config = {
+            apiKey: "AIzaSyDfepSNI19ZoWaOPv52mXSUN4s_W8O8URg",
+            authDomain: "cheekymonkeyacademy-1a390.firebaseapp.com",
+            databaseURL: "https://cheekymonkeyacademy-1a390.firebaseio.com",
+            projectId: "cheekymonkeyacademy-1a390",
+            storageBucket: "",
+            messagingSenderId: "52825639428"
+        };
+        firebase.initializeApp(config);
+    </script>
+    <script type="text/javascript">
+      initApp = function() {
+        firebase.auth().onAuthStateChanged(function(user) {
+          if (user) {
+            // User is signed in.
+            var displayName = user.displayName;
+            var email = user.email;
+            var emailVerified = user.emailVerified;
+            var photoURL = user.photoURL;
+            var uid = user.uid;
+            var phoneNumber = user.phoneNumber;
+            var providerData = user.providerData;
+            user.getIdToken().then(function(accessToken) {
+              document.getElementById('sign-in-status').textContent = 'Signed in';
+              document.getElementById('sign-in').textContent = 'Sign out';
+              document.getElementById('account-details').textContent = JSON.stringify({
+                displayName: displayName,
+                email: email,
+                emailVerified: emailVerified,
+                phoneNumber: phoneNumber,
+                photoURL: photoURL,
+                uid: uid,
+                accessToken: accessToken,
+                providerData: providerData
+              }, null, '  ');
+            });
+          } else {
+            // User is signed out.
+            document.getElementById('sign-in-status').textContent = 'Signed out';
+            document.getElementById('sign-in').textContent = 'Sign in';
+            document.getElementById('account-details').textContent = 'null';
+          }
+        }, function(error) {
+          console.log(error);
+        });
+      };
+
+      window.addEventListener('load', function() {
+        initApp()
+      });
+    </script>
     <!-- Moment.js -->
     <!-- <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script> -->
 </head>
@@ -46,6 +100,13 @@
         </div>
     </div>
     <script type="text/javascript" src="assets/js/navBar.js"></script>
+
+    <hr> <!-- TODO this needs a home - maybe in the nav bar? -->
+    <div><h1>Sign In (move and fix me)</h1></div>
+    <div id="sign-in-status"></div>
+    <div id="sign-in"></div>
+    <div id="account-details"></div>
+    <hr>
 
 </body>
 </html>
