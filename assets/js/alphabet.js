@@ -156,7 +156,11 @@ $(document).ready(function(){
 			assignLetterAndCallForGifToDiv();
 		}
 		else {
+
 			computerSayThis("That is actually the image for: " + $(this).attr("assigned_letter"))
+
+			//computerSayThis("That is actually the image for letter: " + $(this).attr("assigned_letter"))
+
 		}
 	});
 });
