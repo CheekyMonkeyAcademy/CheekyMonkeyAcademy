@@ -1,14 +1,20 @@
 $(document).ready(function(){
 	var gameObject = {
 			divs: ["div0", "div1", "div2", "div3"],
+			userSettings: {
+				name: "Insert Kids Name Here",
+				gifMovement: true, //TODO implement
+				userSex: "M" // TODO implement
+
+			},
 			timer: {
 
 			},
 			alphabetGame: {
+				title: "Alphabet Game",
 				correctLetter: "A",
 				fourRandomLettersArray: [],
-				alphabetArray: ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"],
-				gifMovement: true
+				alphabetArray: ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 			},
 			otherGame: {
 
@@ -27,7 +33,7 @@ $(document).ready(function(){
 	// });
 
 
-	var letterToClick = "Click on the letter" + gameObject.alphabetGame.correctLetter;
+	var letterToClick = "Click on " + gameObject.alphabetGame.correctLetter;
 
 	// computerSayThis(letterToClick);
 	// computerSayThis("That was AWESOME!!!");
@@ -38,7 +44,7 @@ $(document).ready(function(){
 	// TODO click the right and get a good sound and a new letter
 
 	// TODO click the wrong one and get a bad sound - no new letter
-
+	setupPage();
 	assignLetterAndCallForGifToDiv();
 
 	function assignLetterAndCallForGifToDiv() {
@@ -63,7 +69,12 @@ $(document).ready(function(){
 		// assign our 'winning' letter for this round.
 		gameObject.alphabetGame.correctLetter = gameObject.alphabetGame.fourRandomLettersArray[getRandomFrom(4)];
 		// voice active asking kids to find said letter
-		computerSayThis("Please click on the image for the letter " + gameObject.alphabetGame.correctLetter);
+		computerSayThis("Click the image for " + gameObject.alphabetGame.correctLetter);
+	}
+
+	function setupPage () {
+		// assign title to html title
+		$("#title").html(gameObject.alphabetGame.title);
 	}
 
 	function clearDivs() {
@@ -141,11 +152,11 @@ $(document).ready(function(){
 		console.log($(this).attr("assigned_letter"))
 		console.log("alphabet letter " + gameObject.alphabetGame.correctLetter);
 		if ($(this).attr("assigned_letter") === ("alphabet letter " + gameObject.alphabetGame.correctLetter)) {
-			computerSayThis("That was AWESOME!!!  You clicked the letter " + gameObject.alphabetGame.correctLetter);
+			computerSayThis("That was AWESOME!!! " + gameObject.userSettings.name + " You clicked the letter " + gameObject.alphabetGame.correctLetter);
 			assignLetterAndCallForGifToDiv();
 		}
 		else {
-			// TODO play a fun sound that is a 'nope'
+			computerSayThis("That is actually the image for: " + $(this).attr("assigned_letter"))
 		}
 	});
 });
