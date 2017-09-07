@@ -2,9 +2,9 @@ $(document).ready(function(){
 	var gameObject = {
 			divs: ["div0", "div1", "div2", "div3"],
 			userSettings: {
-				name: "Insert Kids Name Here",
+				name: "Kyle",
 				gifMovement: true, //TODO implement
-				userSex: "F" // TODO implement
+				userSex: "" // TODO implement
 
 			},
 			timer: {
@@ -28,8 +28,10 @@ $(document).ready(function(){
 					]
 				},
 				name: {
-					success: [
-
+					success: [ //TODO finish implementation
+						// "Atta boy " + 
+						//gameObject.userSettings.name //, 
+						// "good job " + gameObject.userSettings.name
 
 					],
 					failure: [
@@ -104,8 +106,6 @@ $(document).ready(function(){
 			// alternatively, we just accept the random fails and move forward?
 			// perhaps rotate through gifs every few seconds?  give the page more of a 'live' feel?   
 			// dunno, this is a bit of a work in progress.  
-			console.log("Div: " + thisDiv + " assigned letter: " + thisLetter + " using search: >" + thisSearchTerm + "<");
-
 
 			getGifAndAssignToDiv(thisSearchTerm, thisDiv);
 		}
@@ -123,7 +123,6 @@ $(document).ready(function(){
 	function clearDivs() {
 		gameObject.divs.forEach(function(div) {
 			$("#"+div).empty();
-			console.log("emptying: " + div)
 		});
 	}
 
@@ -134,7 +133,7 @@ $(document).ready(function(){
 			// TODO this can duplicate letters - do we want to eliminate that?  Or is a duplicate letter such a good thing?
 			// If we have randomized gifs inside of a letter I would almost leave the 'mulitple success' in.  Sometimes mulitple things ARE true in life.
 		}
-		console.log(gameObject.alphabetGame.fourRandomLettersArray);
+		//console.log(gameObject.alphabetGame.fourRandomLettersArray);
 	}
 		
 	function getRandomFrom(thisNumber) {
@@ -194,12 +193,11 @@ $(document).ready(function(){
 		var returnMessage = "";
 		console.log("received success or fail of: " + successOrFailure);
 		messageArray = gameObject.message.general[successOrFailure];
-		console.log(messageArray);
 
-		// if (gameObject.userSettings.name != "") {
-		// 	console.log("we have a name - it is: " + gameObject.userSettings.name);
-		// 	messageArray.push(messageArray, gameObject.message.name[successOrFailure]);
-		// }
+		if (gameObject.userSettings.name != "") {
+			console.log("we have a name - it is: " + gameObject.userSettings.name);
+			tempArray = messageArray.concat(gameObject.message.name[successOrFailure]);
+		}
 
 		if (gameObject.userSettings.userSex === "M") {
 			console.log("we have assignd sex of: " + gameObject.userSettings.userSex);
@@ -224,10 +222,10 @@ $(document).ready(function(){
 	}
 
 	$("#clicky-container").on("click", ".gif", function(){
-		console.log("received click on: " + this);
-		console.log(this);
-		console.log($(this).attr("assigned_letter"))
-		console.log("alphabet letter " + gameObject.alphabetGame.correctLetter);
+		// console.log("received click on: " + this);
+		// console.log(this);
+		// console.log($(this).attr("assigned_letter"))
+		// console.log("alphabet letter " + gameObject.alphabetGame.correctLetter);
 		if ($(this).attr("assigned_letter") === ("alphabet letter " + gameObject.alphabetGame.correctLetter)) {
 			getMessageForComputerToSay("success");
 			assignLetterAndCallForGifToDiv();
