@@ -4,17 +4,66 @@ $(document).ready(function(){
 			userSettings: {
 				name: "Insert Kids Name Here",
 				gifMovement: true, //TODO implement
-				userSex: "M" // TODO implement
+				userSex: "F" // TODO implement
 
 			},
 			timer: {
 
 			},
+			message: {
+				general: {
+					success: [
+						"Great Job!",
+						// "Congratulations!",
+						// "Hooray!",
+						// "Correct!",
+						"Booya!"
+					],
+					failure: [
+						"Please try again",
+						// "Oops",
+						// "Almost - try another",
+						// "some of these are confusing",
+						"Not quite"
+					]
+				},
+				name: {
+					success: [
+
+
+					],
+					failure: [
+
+					]
+				},
+				male: {
+					success: [
+						"Atta boy!",
+						"good job, son!"
+					],
+					failure: [
+						"try again young man",
+						"good luck next go young man"
+					]
+				},
+				female: {
+					success: [
+						"atta girl!",
+						"good job, young lady"
+					],
+					failure: [
+						"try again young woman",
+						"good luck next time young lady"
+					]
+				}
+			},
 			alphabetGame: {
 				title: "Alphabet Game",
 				correctLetter: "A",
 				fourRandomLettersArray: [],
-				alphabetArray: ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+				alphabetArray: ["A", "B", "C", "D", "E", "F", "G", "H", 
+								"I", "J", "K", "L", "M", "N", "O", "P", "Q", 
+								"R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 			},
 			otherGame: {
 
@@ -35,12 +84,6 @@ $(document).ready(function(){
 
 	var letterToClick = "Click on " + gameObject.alphabetGame.correctLetter;
 
-	// computerSayThis(letterToClick);
-	// computerSayThis("That was AWESOME!!!");
-
-	// TODO load 4 items from the alphabet array - load 1 into each div as the target image
-
-	
 	// TODO click the right and get a good sound and a new letter
 
 	// TODO click the wrong one and get a bad sound - no new letter
@@ -143,7 +186,41 @@ $(document).ready(function(){
 
 		// TODO insure that we are in compliance with the rating requested (more gifs required here);
 		});
+	}
 
+	function getMessageForComputerToSay(successOrFailure) { 
+		var messageArray = [];
+		var tempArray = [];
+		var returnMessage = "";
+		console.log("received success or fail of: " + successOrFailure);
+		messageArray = gameObject.message.general[successOrFailure];
+		console.log(messageArray);
+
+		// if (gameObject.userSettings.name != "") {
+		// 	console.log("we have a name - it is: " + gameObject.userSettings.name);
+		// 	messageArray.push(messageArray, gameObject.message.name[successOrFailure]);
+		// }
+
+		if (gameObject.userSettings.userSex === "M") {
+			console.log("we have assignd sex of: " + gameObject.userSettings.userSex);
+			tempArray = messageArray.concat(gameObject.message.male[successOrFailure]);
+		}
+		else if (gameObject.userSettings.userSex === "F") {
+			console.log("we have assignd sex of: " + gameObject.userSettings.userSex);
+			tempArray = messageArray.concat(gameObject.message.female[successOrFailure]);
+		}
+		else {
+			console.log("no user sex is assigned - so we skip those responses");
+		}
+
+		messageArray = tempArray;
+
+		console.log("final array" + messageArray);
+		console.log(messageArray);
+
+		returnMessage = messageArray[getRandomFrom(messageArray.length)];
+
+		computerSayThis(returnMessage);
 	}
 
 	$("#clicky-container").on("click", ".gif", function(){
@@ -152,15 +229,12 @@ $(document).ready(function(){
 		console.log($(this).attr("assigned_letter"))
 		console.log("alphabet letter " + gameObject.alphabetGame.correctLetter);
 		if ($(this).attr("assigned_letter") === ("alphabet letter " + gameObject.alphabetGame.correctLetter)) {
-			computerSayThis("That was AWESOME!!! " + gameObject.userSettings.name + " You clicked the letter " + gameObject.alphabetGame.correctLetter);
+			getMessageForComputerToSay("success");
 			assignLetterAndCallForGifToDiv();
 		}
 		else {
-
-			computerSayThis("That is actually the image for: " + $(this).attr("assigned_letter"))
-
-			//computerSayThis("That is actually the image for letter: " + $(this).attr("assigned_letter"))
-
+			getMessageForComputerToSay("failure");
+			computerSayThis("That is actually the image for: " + $(this).attr("assigned_letter"));
 		}
 	});
 });
