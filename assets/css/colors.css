@@ -1,5 +1,9 @@
 #title{
 	background-color: salmon;
+	text-align: center;
+	font-size: 50px;
+	padding: 50px;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
 
 #imageContainer {
@@ -9,6 +13,20 @@
 	height:500px;
 	width:100;
 	margin: 0 auto;
+
+}
+
+#instructions{
+	text-align: center;
+	font-size: 35px;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+button{
+	padding: 25px;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	background-color: #ADD8E6;
+	font-size: 35px;
 }
 
 img{

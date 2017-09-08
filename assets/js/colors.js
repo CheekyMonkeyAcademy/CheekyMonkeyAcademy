@@ -5,7 +5,8 @@ $(document).ready(function(){
 $("#gameStart").hide();
 $("#start-game-btn").on("click", function(){
 	$("#gameStart").show();   
-	$("#start-game-btn").hide();                                                                      
+	$("#start-game-btn").hide();  
+	$("#instructions").hide();                                                                    
 }) //End of click function for start game button
 
 //Create a click and drag event for the current image on the screen
@@ -39,7 +40,7 @@ dropLoc.on("drop", function(event){
 		var droppedImageSrc = event.originalEvent.dataTransfer.getData("src")
 		console.log(droppedImageSrc);
 		if(droppedImageColor === $(this).attr("color")) {
-			
+
 			var newImg = $("<img>");
 			newImg.attr("src", droppedImageSrc);
 			var parentDivColor = $(this)
