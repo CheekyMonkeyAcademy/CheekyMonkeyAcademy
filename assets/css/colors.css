@@ -18,38 +18,63 @@ img{
 	position: relative;
 }
 
-.matchingBox {
-	width:150px;
-	margin:20px;
-	height: 100px;
-	border: 1px solid black;
-	position: relative;
-	float: left;
-}
-
-
-#orangeImages{
-	border: 5px solid orange;
-}
-
 #redImages{
-	border: 5px solid red;
+	border:5px solid red;
+	height: 100px;
+	width: 150px;
+	margin: 30px;
+	position:relative;
+	float:left;
 }
 
 #blueImages{
-	border: 5px solid blue;
-}
+	border:5px solid blue;
+	height: 100px;
+	width: 150px;
+	margin:30px;
+	position: relative;
+	float:left;
+	}
 
 #yellowImages{
 	border: 5px solid yellow;
+	height: 100px;
+	width: 150px;
+	margin:30px;
+	position: relative;
+	float:left;
 }
 
 #greenImages{
 	border: 5px solid green;
+	height: 100px;
+	width: 150px;
+	margin: 30px;
+	position: relative;
+	float:left;
+	} 
+
+#orangeImages{
+	border: 5px solid orange;
+	height: 100px;
+	width: 150px;
+	margin: 30px;
+	position: relative;
+	float:left;
+}
+
+.redText{
+	color:red;
+	text-align: center;
+}
+
+.yellowText{
+	color:yellow;
+	text-align: center;
 }
 
 .blueText{
-	color: blue;
+	color:blue;
 	text-align: center;
 }
 
@@ -58,17 +83,7 @@ img{
 	text-align: center;
 }
 
-.redText{
-	color:red;
-	text-align: center;
-}
-
 .orangeText{
 	color:orange;
-	text-align: center;
-}
-
-.yellowText{
-	color:yellow;
 	text-align: center;
 }

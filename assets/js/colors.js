@@ -10,12 +10,13 @@ $("#start-game-btn").on("click", function(){
 
 //Create a click and drag event for the current image on the screen
 	//drag, dragstart, dragenter, dragexit, dragleave, dragover
-	var dragImg = $(".greenImages");
+	var dragImg = $(".images");
 	var dropLoc = $(".matchingBox");
 
 dragImg.on("dragstart", function(event) { //This event will fire 
 	//when the user starts dragging the image
-	event.originalEvent.dataTransfer.setData('key', $(this).attr("color"));
+	event.originalEvent.dataTransfer.setData("color", $(this).attr("color"));
+	event.originalEvent.dataTransfer.setData("src", $(this).attr("src"))
 	//('key', 'blueCar');
 	console.log("its dragging!");
 	console.log($(this).attr("color"));
@@ -34,14 +35,28 @@ dropLoc.on("drop", function(event){
 	event.preventDefault();
 	//Add in the next line of code to make sure the user
 		//puts the picture in the correct box
-		var droppedImage = event.originalEvent.dataTransfer.getData('key');
-		if(droppedImage === $(this).attr("color")) {
+		var droppedImageColor = event.originalEvent.dataTransfer.getData("color");
+		var droppedImageSrc = event.originalEvent.dataTransfer.getData("src")
+		console.log(droppedImageSrc);
+		if(droppedImageColor === $(this).attr("color")) {
 			
+			var newImg = $("<img>");
+			newImg.attr("src", droppedImageSrc);
+			var parentDivColor = $(this)
+			parentDivColor.append(newImg);
+			console.log(parentDivColor);
+			
+
+
+
+			//TODO: Id's of boxes need to be unique
+			//TODO: How does the user know which colored box is the correct box
+				//Solve this with labels on boxes?
 			console.log("It's Dropped!!");
-			console.log(droppedImage);
+			// console.log(droppedImage);
 			// var myDroppedImage = $(this).attr("id"); //took id out of parenthesis
-			var newImageElement = $('img');
-			dropLoc.append(newImageElement);
+			// var newImageElement = $(this).attr('src');
+			// dropLoc.append(droppedImageSrc);
 
 		} else {
 			alert("Try Again!");
