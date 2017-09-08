@@ -41,40 +41,28 @@ dropLoc.on("drop", function(event){
 		var droppedImageSrc = event.originalEvent.dataTransfer.getData("src")
 		console.log(droppedImageSrc);
 		if(droppedImageColor === $(this).attr("color")) {
-
-			var newImg = $("<img>");
-			newImg.attr("src", droppedImageSrc);
-			var parentDivColor = $(this)
-			parentDivColor.append(newImg);
-			console.log(parentDivColor);
+			if ($(this).attr("status", "empty")) {
+				$(this).attr("status", "filled");
+				console.log($(this).attr("status"));
+				var newImg = $("<img>");
+				newImg.attr("src", droppedImageSrc);
+				var parentDivColor = $(this)
+				parentDivColor.append(newImg);
+				console.log(parentDivColor);
+				console.log("It's Dropped!!");
+			//End of line 44 if statement is at line 53
+			} else {
+				alert("Choose another box");
+			} //End of inner else statement on 53
+		//End of line 43 if statement is on line 56
+		} else {
+			alert("try again");
+		}
+	})//This is the end of the on drop function on line 34
 			
 
 
 
-			//TODO: Id's of boxes need to be unique
-			//TODO: How does the user know which colored box is the correct box
-				//Solve this with labels on boxes?
-			console.log("It's Dropped!!");
-			// console.log(droppedImage);
-			// var myDroppedImage = $(this).attr("id"); //took id out of parenthesis
-			// var newImageElement = $(this).attr('src');
-			// dropLoc.append(droppedImageSrc);
-
-		} else {
-			alert("Try Again!");
-			}
-		})
-
-	//Create a conditional statement where the player must drag
-	//the image to the correct box
-		//if the image is put in the correct box
-			//it will stack on top of the box and previous images
-		//if the image was not matched to correct box
-			//The image will bounce back to the imageDisplayBox
-			//And alert the player to try again
-//Create a for loop for the computer to display on the screen
-	//all the images in the array in a random order in the imageDiv class
-//Create an
 
 
 
