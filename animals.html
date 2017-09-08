@@ -1,29 +1,43 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Cheeky Monkey Academy - Animals Game</title>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="assets\js\animals.js"></script>
-	<!-- <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script> -->
-	<!-- <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script> -->
 
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="assets\css\alphabet.css">
+<head>
+    <title>Cheeky Monkey Academy - Animals Game</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets\js\animals.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    
+    <link rel="stylesheet" type="text/css" href="assets\css\alphabet.css">
 
 </head>
-<body>
-	<div><h1 id="title" class="text-center">Animals Game</h1></div>
-	<container id="clicky-container" class="text-center">
-		<row class="height-50">
-			<div id="div0" class="background-gray col-sm-6 col-md-6">Div 0</div>
-			<div id="div1" class="col-sm-6 col-md-6">Div 1</div>
-		</row>
-		<row class="height-50">
-			<div id="div2" class="col-sm-6 col-md-6">Div 2</div>
-			<div id="div3" class="background-gray col-sm-6 col-md-6">Div 3</div>
-		</row>
-	</container>
 
+<body>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="index.html">Home</a>
+        <a href="alphabet.html">Alphabet Game!</a>
+        <a href="colors.html">Colors Game</a>
+        <a href="shapes.html">Shapes Game</a>
+        <a href="numbers.html">Numbers Game</a>
+    </div>
+    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
+    <div>
+        <div>
+            <h1 id="title" class="text-center">Animals Game</h1></div>
+        <container id="clicky-container" class="text-center">
+            <row class="height-50">
+                <div id="div0" class="background-gray col-sm-6 col-md-6">Div 0</div>
+                <div id="div1" class="col-sm-6 col-md-6">Div 1</div>
+            </row>
+            <row class="height-50">
+                <div id="div2" class="col-sm-6 col-md-6">Div 2</div>
+                <div id="div3" class="background-gray col-sm-6 col-md-6">Div 3</div>
+            </row>
+        </container>
+    <script type="text/javascript" src="assets/js/navBar.js"></script>        
 </body>
+
 </html>
