@@ -11,9 +11,12 @@
 	border-style: solid;
 	border-width: 5px;
 	height:500px;
-	width:100;
+	width:1000px;
 	margin: 0 auto;
+}
 
+body{
+	background-color: rgba(32,178,170, 0.3);
 }
 
 #instructions{
@@ -25,8 +28,9 @@
 button{
 	padding: 25px;
 	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-	background-color: #ADD8E6;
+	background-color: #F39C12 ;
 	font-size: 35px;
+	border: 2px solid black;
 }
 
 img{
@@ -105,3 +109,17 @@ img{
 	color:orange;
 	text-align: center;
 }
+
+#boxRow1{
+	margin-left: 100px;
+}
+
+
+#boxRow2{
+	margin-left: 100px;
+}
+
+#boxRow3{
+	margin-left: 400px;
+}
+
