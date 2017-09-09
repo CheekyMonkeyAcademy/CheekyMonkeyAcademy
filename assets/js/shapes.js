@@ -6,6 +6,7 @@
        assignShapeAndCallForGifToDiv();
 
        function assignShapeAndCallForGifToDiv() {
+           createMenu();
            clearDivs(); //Need to create a Div clearing function
            getFourRandomShapesIntoArray();
 
@@ -46,7 +47,7 @@
                computerSayThis("Touchdown! You did great! You clicked the " + gameObject.shapesGame.correctShape);
                assignShapeAndCallForGifToDiv() //game reset with win
            } else {
-               //need to update this to be single call from basicFunction success
+               //need to update this to be single call from basicFunction failure
                computerSayThis("Not this time batman! That was the " + $(this).attr("assigned_shape"))
            }
 
