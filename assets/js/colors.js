@@ -14,6 +14,7 @@ $("#start-game-btn").on("click", function(){
 	//drag, dragstart, dragenter, dragexit, dragleave, dragover
 	var dragImg = $(".images");
 	var dropLoc = $(".matchingBox");
+	var completionModalCounter = 15;
 
 dragImg.on("dragstart", function(event) { //This event will fire 
 	//when the user starts dragging the image
@@ -53,6 +54,11 @@ dropLoc.on("drop", function(event){
 				parentDivColor.append(newImg);
 				console.log(parentDivColor);
 				console.log("It's Dropped!!");
+				completionModalCounter --
+				console.log(completionModalCounter);
+					if(completionModalCounter === 0){
+						$('#youWin').modal();
+					}
 
 				//Get dropped image to disappear from the imageContainer
 				
@@ -71,6 +77,10 @@ dropLoc.on("drop", function(event){
 			$('#wrongBoxColor').modal();
 		}
 	})//This is the end of the on drop function on line 34
+
+	// if(completionModalCounter === 0){
+	// 	$('#youWin').modal();
+	// } else {}
 
 
 			
