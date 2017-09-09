@@ -22,23 +22,15 @@ $(document).ready(function() {
 
         for (i = 0; i < gameObject.shapesGame.fourRandomShapesArray.length; i++) {
             var thisDiv = "div" + (i);
-            var thisShape = gameObject.shapesGame.fourRandomShapesArray[i].shape;
+            var thisShape = gameObject.shapesGame.fourRandomShapesArray[i];
             var thisSearchTerm = "shape " + thisShape;
 
             console.log("Div: " + thisDiv + " assigned shape " + thisShape + " using search: >" + thisSearchTerm + "<");
 
             getShapeAndAssignToDiv(thisSearchTerm, thisDiv);
         }
-
-        for (j = 0; j < gameObject.shapesGame.fourRandomShapesArray.length; j++) {
-            var thisDiv = "div" + (j);
-            var thisColor = gameObject.shapesGame.fourRandomShapesArray[j].color;
-            var thisColorTerm = "color " + thisColor;
-        }
-
         //assigning winning shape
-        gameObject.shapesGame.correctShape = gameObject.shapesGame.fourRandomShapesArray[getRandomFrom(4)].shape;
-        gameObject.shapesGame.correctShape = gameObject.shapesGame.fourRandomShapesArray[getRandomFrom(4)].color;
+        gameObject.shapesGame.correctShape = gameObject.shapesGame.fourRandomShapesArray[getRandomFrom(4)];
         //voice prompt for shape
         computerSayThis("Please click on the image for the shape " + gameObject.shapesGame.correctShape);
 
@@ -54,7 +46,7 @@ $(document).ready(function() {
     function getFourRandomShapesIntoArray() {
         gameObject.shapesGame.fourRandomShapesArray = [];
         for (i = 0; i < 4; i++) {
-            gameObject.shapesGame.fourRandomShapesArray.push({shape: gameObject.shapesGame.shapesArray[getRandomFrom(11)], color: ''});
+            gameObject.shapesGame.fourRandomShapesArray.push(gameObject.shapesGame.shapesArray[getRandomFrom(11)]);
         }
         console.log(gameObject.shapesGame.fourRandomShapesArray);
     }
