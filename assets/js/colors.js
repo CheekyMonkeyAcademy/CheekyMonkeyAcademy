@@ -19,6 +19,7 @@ dragImg.on("dragstart", function(event) { //This event will fire
 	//when the user starts dragging the image
 	event.originalEvent.dataTransfer.setData("color", $(this).attr("color"));
 	event.originalEvent.dataTransfer.setData("src", $(this).attr("src"));
+	event.originalEvent.dataTransfer.setData("id", $(this).attr("id"));
 	console.log("its dragging!");
 	console.log($(this).attr("color"));
 	//ADDING HELPER function to draggable element?????
@@ -38,15 +39,17 @@ dropLoc.on("drop", function(event){
 	//Add in the next line of code to make sure the user
 		//puts the picture in the correct box
 		var droppedImageColor = event.originalEvent.dataTransfer.getData("color");
-		var droppedImageSrc = event.originalEvent.dataTransfer.getData("src")
+		var droppedImageSrc = event.originalEvent.dataTransfer.getData("src");
+		var droppedImageId = event.originalEvent.dataTransfer.getData("id");
 		console.log(droppedImageSrc);
 		if(droppedImageColor === $(this).attr("color")) {
-			if ($(this).attr("status", "empty")) {
+			if ($(this).attr("status") === "empty") {
 				$(this).attr("status", "filled");
+				$("#" + droppedImageId).hide();
 				console.log($(this).attr("status")); //This works!
 				var newImg = $("<img>");
 				newImg.attr("src", droppedImageSrc);
-				var parentDivColor = $(this)
+				var parentDivColor = $(this);
 				parentDivColor.append(newImg);
 				console.log(parentDivColor);
 				console.log("It's Dropped!!");
@@ -57,7 +60,7 @@ dropLoc.on("drop", function(event){
 					//This makes all the images inside the imageContainer disappear
 
 			//End of line 44 if statement is at line 53
-			} else if ($(this).attr("status", "filled")) {
+			} else if ($(this).attr("status") === "filled") {
 				alert("Choose another box");
 
 			} //End of inner else statement on 53
