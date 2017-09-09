@@ -5,13 +5,14 @@ $(document).ready(function(){
 
 			},
 			animalGame: {
-				correctAnimal: "Ants",
+
+				correctAnimal: "ants",
 				fourRandomAnimalsArray: [],
-				animalArray: ["Ants", "Bat", "Cat", "Dog", "Eagle", "Fish",
-				 "Goose", "Hamster", "Impala", "Jaguar", "Kangaroo", "Lion",
-				  "Monkey", "Newfoundland", "Ostrich", "Pig", "Quinling panda", "Raccoon",
-				   "Salamander", "Tiger", "Urchin", "Vulture", "Wolf", "Xerus squirrel", 
-				   "Yellow mongoose", "Zebra"],
+				animalArray: ["ants", "alpaca", "antelope", "Bat", "beaver", "panther", "dragonfly", "pigeon", "prairie Dog", "dolphin", "Eagle", "Fish",
+				 "Goose", "Hawk", "Impala", "jackal", "elephant", "Kangaroo", "Lion", "lady bug", 
+				  "Monkey", "snail", "bird", "Ostrich", "Pig", "Quinling panda", "raccoon",
+				   "Salamander", "owl", "squirrel", "seagull", "sealion", "Tiger", "Urchin", "Vulture", "wolf", "squirrel", 
+				   "mongoose", "Zebra"],
 				gifMovement: true
 			},
 			otherGame: {
@@ -53,13 +54,19 @@ $(document).ready(function(){
 		for (i = 0; i < gameObject.animalGame.fourRandomAnimalsArray.length; i++) {
 			var thisDiv = "div" + (i);
 			var thisAnimal = gameObject.animalGame.fourRandomAnimalsArray[i];
-			var thisSearchTerm = "animal " + thisAnimal;
+
+
+			var thisSearchTerm = "nature " + thisAnimal;
+
 			// TODO a search term for animals seems not be the best way to get gifs - we might need to go from a static gif set
 			// Or find a search term that works more unformly (I doubt one exists)
 			// alternatively, we just accept the random fails and move forward?
 			// perhaps rotate through gifs every few seconds?  give the page more of a 'live' feel?   
 			// dunno, this is a bit of a work in progress.  
-			console.log("Div: " + thisDiv + " assigned animal: " + thisAnimal + " using search: >" + thisSearchTerm + "<");
+
+			console.log("Div: " + thisDiv + " assigned_animal: " + thisAnimal + " using search: >" + thisSearchTerm + "<");
+
+
 
 
 			getGifAndAssignToDiv(thisSearchTerm, thisDiv);
@@ -80,7 +87,9 @@ $(document).ready(function(){
 	function getFourRandomAnimalsIntoArray() {
 		gameObject.animalGame.fourRandomAnimalsArray = [];
 		for (i = 0; i < 4; i++) {
-			gameObject.animalGame.fourRandomAnimalsArray.push(gameObject.animalGame.animalArray[getRandomFrom(26)]);
+			gameObject.animalGame.fourRandomAnimalsArray.push(
+				gameObject.animalGame.animalArray[
+				getRandomFrom(gameObject.animalGame.animalArray.length)]);
 			// TODO this can duplicate animals - do we want to eliminate that?  Or is a duplicate animal such a good thing?
 			// If we have randomized gifs inside of a animal I would almost leave the 'mulitple success' in.  Sometimes mulitple things ARE true in life.
 		}
@@ -100,7 +109,7 @@ $(document).ready(function(){
 
 	function getGifAndAssignToDiv(searchTerm, div) {
 		var resultsObject = {};
-		var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + "funny " +
+		var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + 
     	searchTerm + "&api_key=dc6zaTOxFJmzC&limit=1"; // This should end up using 1 - maybe pull more and rotate based on a timer?
 
     	$.ajax({
@@ -115,7 +124,7 @@ $(document).ready(function(){
 		        var stillUrl = value.images.fixed_height_still.url;
 		        var rating = value.rating;
 
-				if (rating = "r") { // kids game, let's keep it clean - can variable this later.  
+				if (rating = "g") { // kids game, let's keep it clean - can variable this later.  
 			        var thisP = $("<p>");
 			        thisP.text("Rating: " + rating.toUpperCase());
 			        var targetParent = $("#" + div);
@@ -143,8 +152,10 @@ $(document).ready(function(){
 		console.log("received click on: " + this);
 		console.log(this);
 		console.log($(this).attr("assigned_animal"));
-		console.log("animal " + gameObject.animalGame.correctAnimal);
-		if ($(this).attr("assigned_animal") === ("animal " + gameObject.animalGame.correctAnimal)) {
+
+		console.log("nature " + gameObject.animalGame.correctAnimal);
+		if ($(this).attr("assigned_animal") === ("nature " + gameObject.animalGame.correctAnimal)) {
+
 			computerSayThis("This is correct!!!");
 			 // + gameObject.animalGame.correctAnimal);
 			assignAnimalAndCallForGifToDiv();
