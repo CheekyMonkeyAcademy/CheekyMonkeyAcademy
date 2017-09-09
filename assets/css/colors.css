@@ -19,107 +19,104 @@ body{
 	background-color: rgba(32,178,170, 0.3);
 }
 
+.container-fluid {
+	text-align: center;
+	margin-left: 25%;
+
+}
+
 #instructions{
 	text-align: center;
 	font-size: 35px;
 	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
 
-button{
+/*button{
 	padding: 25px;
 	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 	background-color: #F39C12 ;
 	font-size: 35px;
 	border: 2px solid black;
 }
+*/
+.modal {
+	padding: 40px;
+	font-size: 30px;
+}
 
+/*#fullBox{
+	padding: 40px;
+	font-size: 30px;
+}
+
+#wrongBoxColor{
+	padding: 40px;
+	font-size: 30px;
+}
+*/
 img{
 	width:150px;
-	margin:20px;
+	margin:10px;
 	height: 100px;	
 	position: relative;
+	float: left;
 }
 
 #redImages{
 	border:5px solid red;
-	height: 100px;
+	/*height: 100px;
 	width: 150px;
-	margin: 30px;
 	position:relative;
 	float:left;
+*/
 }
+
+.matchingBox {
+	/*text-align: center;*/
+	height: 100px;
+	width: 150px;
+	position: relative;
+	float:left;
+	margin:5px;
+	}
 
 #blueImages{
 	border:5px solid blue;
-	height: 100px;
-	width: 150px;
-	margin:30px;
-	position: relative;
-	float:left;
-	}
+}
 
 #yellowImages{
 	border: 5px solid yellow;
-	height: 100px;
+	/*height: 100px;
 	width: 150px;
-	margin:30px;
 	position: relative;
-	float:left;
+	float:left;*/
 }
 
 #greenImages{
 	border: 5px solid green;
-	height: 100px;
+	/*height: 100px;
 	width: 150px;
-	margin: 30px;
 	position: relative;
-	float:left;
+	float:left;*/
 	} 
 
 #orangeImages{
 	border: 5px solid orange;
-	height: 100px;
+	/*height: 100px;
 	width: 150px;
-	margin: 30px;
 	position: relative;
-	float:left;
-}
-
-.redText{
-	color:red;
-	text-align: center;
-}
-
-.yellowText{
-	color:yellow;
-	text-align: center;
-}
-
-.blueText{
-	color:blue;
-	text-align: center;
-}
-
-.greenText{
-	color:green;
-	text-align: center;
-}
-
-.orangeText{
-	color:orange;
-	text-align: center;
+	float:left;*/
 }
 
 #boxRow1{
 	margin-left: 100px;
 }
 
-
 #boxRow2{
 	margin-left: 100px;
 }
 
 #boxRow3{
-	margin-left: 400px;
+	margin-left: 100px;
 }
 

@@ -6,6 +6,8 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="assets\js\colors.js"></script>
 	<link rel="stylesheet" type="text/css" href="assets\css\colors.css">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
 </head>
 <body>
@@ -20,11 +22,11 @@
 	</div>
 
 
-	<div class="container" id="gameStart">
+	<div class="container-fluid" id="gameStart">
 
 		<div class="row">
-			
-			<div id="imageContainer">
+			<div class="col-sm-2"></div>
+			<div class="col-sm-8" id="imageContainer">
 
 				<img src="assets/images/colorsGameImages/yellowSun.jpg" alt="yellowSun" draggable="true"  class="images" color="yellow" id="yellowSun";>
 
@@ -58,38 +60,70 @@
 
 			</div><!--End of the first row-->
 		</div>
-
-		
-		<div class="row" id="boxRow1">
-			<div id="blueImages" class="matchingBox" color="blue" status="empty"><h4 class="blueText">blue</h4></div>
-			<div id="redImages" class="matchingBox" color="red" status="empty"><h4 class="redText">red</h4></div>
-			<div id="orangeImages" class="matchingBox" color="orange" status="empty"><h4 class="orangeText">orange</h4></div>
-			<div id="yellowImages" class="matchingBox" color="yellow" status="empty"><h4 class="yellowText">yellow</h4></div>
-			<div id="greenImages" class="matchingBox" color="green" status="empty"><h4 class="greenText">green</h4></div>
+	
+		<div class="row">
+		<div class="col-sm-2"></div>		
+		<div class="col-sm-8" id="boxRow1">
+			<div id="blueImages" class="matchingBox" color="blue" status="empty"></div>
+			<div id="redImages" class="matchingBox" color="red" status="empty"></div>
+			<div id="orangeImages" class="matchingBox" color="orange" status="empty"></div>
+			<div id="yellowImages" class="matchingBox" color="yellow" status="empty"></div>
+			<div id="greenImages" class="matchingBox" color="green" status="empty"></div>
 		</div>
-
-		<div class="row" id="boxRow2">
-			<div id="yellowImages" class="matchingBox" color="yellow" status="empty"><h4 class="yellowText">yellow</h4></div>
-			<div id="orangeImages" class="matchingBox" color="orange" status="empty"><h4 class="orangeText">orange</h4></div>
-			<div id="redImages" class="matchingBox" color="red" status="empty"><h4 class="redText">red</h4></div>
-			<div id="blueImages" class="matchingBox" color="blue" status="empty"><h4 class="blueText">blue</h4></div>
-			<div id="greenImages" class="matchingBox" color="green" status="empty"><h4 class="greenText">green</h4></div>		
+</div>
+		<div class="row">
+		<div class="col-sm-2"></div>		
+		<div class="col-sm-8" id="boxRow2">
+			<div id="redImages" class="matchingBox" color="red" status="empty"></div>
+			<div id="yellowImages" class="matchingBox" color="yellow" status="empty"></div>
+			<div id="blueImages" class="matchingBox" color="blue" status="empty"></div>
+			<div id="greenImages" class="matchingBox" color="green" status="empty"></div>			
+			<div id="orangeImages" class="matchingBox" color="orange" status="empty"></div>
+					
 		</div>
-
-		<div class="row" id="boxRow3">
-			<div id="redImages" class="matchingBox" color="red" status="empty"><h4 class="redText">red</h4></div>
-			<div id="blueImages" class="matchingBox" color="blue" status="empty"><h4 class="blueText">blue</h4></div>
-			<div id="greenImages" class="matchingBox" color="green" status="empty"><h4 class="greenText">green</h4></div>
-			<div id="orangeImages" class="matchingBox" color="orange" status="empty"><h4 class="orangeText">orange</h4></div>
-			<div id="yellowImages" class="matchingBox" color="yellow" status="empty"><h4 class="yellowText">yellow</h4></div>
+</div>
+		<div class="row">
+		<div class="col-sm-2"></div>		
+		<div class="col-sm-8" id="boxRow3">
+			<div id="greenImages" class="matchingBox" color="green" status="empty"></div>
+			<div id="blueImages" class="matchingBox" color="blue" status="empty"></div>			
+			<div id="orangeImages" class="matchingBox" color="orange" status="empty"></div>
+			<div id="yellowImages" class="matchingBox" color="yellow" status="empty"></div>
+			<div id="redImages" class="matchingBox" color="red" status="empty"></div>
+		</div>
 		</div>
 
 	</div> <!--end of the container-->
 
+	<!--Modals-->
+	<!--Box is already filled-->
+		<div class="modal fade bs-example-modal-sm" id="fullBox" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+	  		<div class="modal-dialog modal-sm" role="document">
+	    		<div class="modal-content">
+	     			That box is full!  Choose another box!
+	    		</div>
+	  		</div>
+		</div>
+	<!--Wrong box color-->
+		<div class="modal fade bs-example-modal-sm" id="wrongBoxColor" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+	  		<div class="modal-dialog modal-sm" role="document">
+	    		<div class="modal-content">
+	    			Uh-oh! Those colors don't match!	
+	    		</div>
+	  		</div>
+		</div>
+	<!--You Win-->
+	<div class="modal fade bs-example-modal-sm" id="youWin" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+	  		<div class="modal-dialog modal-sm" role="document">
+	    		<div class="modal-content">
+	    			Hooray!! You finished the game!!!
+	    			Wahoooo!	
+	    		</div>
+	  		</div>
+		</div>
 
 
 
 </body>
 </html>
 
-<!-- <img src="assets/images/colorsGameImages/blueCar.png" alt="blueCar" style="width:150px;height: 100px;" id="blueCar" draggable="true"> -->
