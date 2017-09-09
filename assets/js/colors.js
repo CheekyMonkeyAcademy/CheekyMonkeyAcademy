@@ -61,14 +61,18 @@ dropLoc.on("drop", function(event){
 
 			//End of line 44 if statement is at line 53
 			} else if ($(this).attr("status") === "filled") {
-				alert("Choose another box");
+				//alert("Choose another box");
+				$('#fullBox').modal();
 
 			} //End of inner else statement on 53
 		//End of line 43 if statement is on line 56
 		} else {
-			alert("try again");
+			// alert("try again");
+			$('#wrongBoxColor').modal();
 		}
 	})//This is the end of the on drop function on line 34
+
+
 			
 
 
