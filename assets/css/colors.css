@@ -1,0 +1,122 @@
+#title{
+	background-color: salmon;
+	text-align: center;
+	font-size: 50px;
+	padding: 50px;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+#imageContainer {
+	border-color: black;
+	border-style: solid;
+	border-width: 5px;
+	height:500px;
+	width:1000px;
+	margin: 0 auto;
+}
+
+body{
+	background-color: rgba(32,178,170, 0.3);
+}
+
+.container-fluid {
+	text-align: center;
+	margin-left: 25%;
+
+}
+
+#instructions{
+	text-align: center;
+	font-size: 35px;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+/*button{
+	padding: 25px;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	background-color: #F39C12 ;
+	font-size: 35px;
+	border: 2px solid black;
+}
+*/
+.modal {
+	padding: 40px;
+	font-size: 30px;
+}
+
+/*#fullBox{
+	padding: 40px;
+	font-size: 30px;
+}
+
+#wrongBoxColor{
+	padding: 40px;
+	font-size: 30px;
+}
+*/
+img{
+	width:150px;
+	margin:10px;
+	height: 100px;	
+	position: relative;
+	float: left;
+}
+
+#redImages{
+	border:5px solid red;
+	/*height: 100px;
+	width: 150px;
+	position:relative;
+	float:left;
+*/
+}
+
+.matchingBox {
+	/*text-align: center;*/
+	height: 100px;
+	width: 150px;
+	position: relative;
+	float:left;
+	margin:5px;
+	}
+
+#blueImages{
+	border:5px solid blue;
+}
+
+#yellowImages{
+	border: 5px solid yellow;
+	/*height: 100px;
+	width: 150px;
+	position: relative;
+	float:left;*/
+}
+
+#greenImages{
+	border: 5px solid green;
+	/*height: 100px;
+	width: 150px;
+	position: relative;
+	float:left;*/
+	} 
+
+#orangeImages{
+	border: 5px solid orange;
+	/*height: 100px;
+	width: 150px;
+	position: relative;
+	float:left;*/
+}
+
+#boxRow1{
+	margin-left: 100px;
+}
+
+#boxRow2{
+	margin-left: 100px;
+}
+
+#boxRow3{
+	margin-left: 100px;
+}
+
