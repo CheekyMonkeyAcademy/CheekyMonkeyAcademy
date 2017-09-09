@@ -18,10 +18,10 @@ $("#start-game-btn").on("click", function(){
 dragImg.on("dragstart", function(event) { //This event will fire 
 	//when the user starts dragging the image
 	event.originalEvent.dataTransfer.setData("color", $(this).attr("color"));
-	event.originalEvent.dataTransfer.setData("src", $(this).attr("src"))
-	//('key', 'blueCar');
+	event.originalEvent.dataTransfer.setData("src", $(this).attr("src"));
 	console.log("its dragging!");
 	console.log($(this).attr("color"));
+	//ADDING HELPER function to draggable element?????
 });
 
 dropLoc.on("dragover", function(event) {
@@ -43,16 +43,23 @@ dropLoc.on("drop", function(event){
 		if(droppedImageColor === $(this).attr("color")) {
 			if ($(this).attr("status", "empty")) {
 				$(this).attr("status", "filled");
-				console.log($(this).attr("status"));
+				console.log($(this).attr("status")); //This works!
 				var newImg = $("<img>");
 				newImg.attr("src", droppedImageSrc);
 				var parentDivColor = $(this)
 				parentDivColor.append(newImg);
 				console.log(parentDivColor);
 				console.log("It's Dropped!!");
+
+				//Get dropped image to disappear from the imageContainer
+				
+				// dragImg.attr("visibility", "hidden").hide();
+					//This makes all the images inside the imageContainer disappear
+
 			//End of line 44 if statement is at line 53
-			} else {
+			} else if ($(this).attr("status", "filled")) {
 				alert("Choose another box");
+
 			} //End of inner else statement on 53
 		//End of line 43 if statement is on line 56
 		} else {
