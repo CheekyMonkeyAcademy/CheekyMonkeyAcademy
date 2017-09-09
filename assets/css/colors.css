@@ -1,0 +1,125 @@
+#title{
+	background-color: salmon;
+	text-align: center;
+	font-size: 50px;
+	padding: 50px;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+#imageContainer {
+	border-color: black;
+	border-style: solid;
+	border-width: 5px;
+	height:500px;
+	width:1000px;
+	margin: 0 auto;
+}
+
+body{
+	background-color: rgba(32,178,170, 0.3);
+}
+
+#instructions{
+	text-align: center;
+	font-size: 35px;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+button{
+	padding: 25px;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	background-color: #F39C12 ;
+	font-size: 35px;
+	border: 2px solid black;
+}
+
+img{
+	width:150px;
+	margin:20px;
+	height: 100px;	
+	position: relative;
+}
+
+#redImages{
+	border:5px solid red;
+	height: 100px;
+	width: 150px;
+	margin: 30px;
+	position:relative;
+	float:left;
+}
+
+#blueImages{
+	border:5px solid blue;
+	height: 100px;
+	width: 150px;
+	margin:30px;
+	position: relative;
+	float:left;
+	}
+
+#yellowImages{
+	border: 5px solid yellow;
+	height: 100px;
+	width: 150px;
+	margin:30px;
+	position: relative;
+	float:left;
+}
+
+#greenImages{
+	border: 5px solid green;
+	height: 100px;
+	width: 150px;
+	margin: 30px;
+	position: relative;
+	float:left;
+	} 
+
+#orangeImages{
+	border: 5px solid orange;
+	height: 100px;
+	width: 150px;
+	margin: 30px;
+	position: relative;
+	float:left;
+}
+
+.redText{
+	color:red;
+	text-align: center;
+}
+
+.yellowText{
+	color:yellow;
+	text-align: center;
+}
+
+.blueText{
+	color:blue;
+	text-align: center;
+}
+
+.greenText{
+	color:green;
+	text-align: center;
+}
+
+.orangeText{
+	color:orange;
+	text-align: center;
+}
+
+#boxRow1{
+	margin-left: 100px;
+}
+
+
+#boxRow2{
+	margin-left: 100px;
+}
+
+#boxRow3{
+	margin-left: 400px;
+}
+
