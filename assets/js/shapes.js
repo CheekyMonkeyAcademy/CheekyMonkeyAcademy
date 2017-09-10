@@ -1,6 +1,7 @@
    $(document).ready(function() {
 
-
+       createMenu();
+       
        var shapeToClick = "Click on the shape" + gameObject.shapesGame.correctShape;
 
        assignShapeAndCallForGifToDiv();

@@ -1,4 +1,6 @@
 $(document).ready(function(){
+	createMenu();
+
 	var gameObject = {
 			divs: ["div0", "div1", "div2", "div3"],
 			userSettings: {

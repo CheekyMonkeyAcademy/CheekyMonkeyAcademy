@@ -14,7 +14,7 @@ $(document).ready(function() {
             var thisPlace = gameObject.placesGame.fourRandomPlacesArray[i];
             var thisSearchTerm = "place " + thisPlace;
 
-            getGifAndAssignToDiv(thisSearchTerm, thisDiv);
+            getShapeAndAssignToDiv(thisSearchTerm, thisDiv);
         }
 
         gameObject.placesGame.correctPlace = gameObject.placesGame.fourRandomPlacesArray[getRandomFrom(4)];
