@@ -6,9 +6,18 @@ var gameObject = {
     userSettings: {
         name: "Kyle",
         gifMovement: true, //TODO implement
-        userSex: "M"
-
+        userSex: "M" 
     },
+    gamesMenu: [
+        ["index.html", "Home"],
+        ["alphabet.html", "Alphabet Game"],
+        ["shapes.html", "Shapes Game"],
+        ["colors.html", "Colors Game"],
+        ["animals.html", "Animals Game"],
+        ["numbers.html", "Numbers Game"], 
+        ["places.html", "Places Game"]
+    ],
+    //
     timer: {
 
     },
@@ -87,6 +96,10 @@ var gameObject = {
         // shapesArray: ["Square", "Circle", "Triangle", "Rectangle", "Egg Shaped", "Diamond", "Polygon", "Sphere", "Rhombus", "Star", "Parallelogram"],
         colorArray: ["Red", "Blue", "Green", "Yellow", "Pink", "Black", "White", "Gold"]
     },
+      placesGame: {
+        correctPlace: "san francisco",
+        placesArray: ["san francisco", "new york city", "london", "paris", "the rocky mountains", "chicago"]
+    },
     alphabetGame: {
         correctLetter: "A",
         fourRandomLettersArray: [],
@@ -98,8 +111,13 @@ var gameObject = {
 }
 
 function createMenu() {
-    // placeholder
-    var one = 1;
+    for (var i = 0; i < gameObject.gamesMenu.length; i++) {
+        var newMenuItem = $("<a>");
+        newMenuItem.attr("href", gameObject.gamesMenu[i][0]);
+        newMenuItem.text(gameObject.gamesMenu[i][1]);
+        $("#mySidenav").append(newMenuItem);
+        console.log(gameObject.gamesMenu[i][0]);
+    }
 }
 
 function openNav() {
