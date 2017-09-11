@@ -21,7 +21,7 @@ $(document).ready(function() {
       dataType: "json",
       
       success: function(data) {
-        $("#output").html("<hr>");
+        $(".question").html("<hr>");
         console.log(searchTerm);
 
         
