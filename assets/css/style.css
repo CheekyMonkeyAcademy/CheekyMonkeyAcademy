@@ -50,19 +50,75 @@ h4 {
     }
 }
 
-
 /*Below are page stylings to update. */
+
+body {
+    background: url("../images/Ukraine.jpg");
+}
+
 .height-50 {
-    height:50%;
+    height: 35%;
 }
 
 #title {
-    background-color:rgba(0, 100, 255, 1);
-    color:white;
-    margin:0;
-    padding:10px;
+    background: #003973;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #E5E5BE, #003973);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #E5E5BE, #003973);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */   
+    color: black;
+    margin: 0;
+    padding: 10px;
+    border-bottom: 5px groove #e5e5be;
 }
 
-.background-gray {
-    background-color:rgba(100, 100, 100, 1);
+.gif {
+    border: 4px inset #e5e5be;
+}
+
+p {
+    width: 15px;
+    height: 15px;
+    margin: 10px auto;
+    text-align: center;
+    font-size: 35px;
+    position: relative;
+    font-weight: 900;
+    font-family: 'Princess Sofia', cursive;
+}
+
+p:nth-child(1) {
+    margin-bottom: 35px;
+    text-align: center;
+    color: #9900ff;
+    /*-webkit-animation: right 1s infinite ease-in-out;
+    -moz-animation: right 1s infinite ease-in-out;*/
+    animation: right 1.5s infinite ease-in-out;
+}
+
+
+
+@keyframes right {
+    0% {
+        transform: translate(-35px);
+    }
+    50% {
+        transform: translate(35px);
+    }
+    100% {
+        transform: translate(-35px);
+    }
+}
+
+@keyframes left {
+    0% {
+        transform: translate(35px);
+    }
+    50% {
+        transform: translate(-35px);
+    }
+    100% {
+        transform: translate(35px);
+    }
 }

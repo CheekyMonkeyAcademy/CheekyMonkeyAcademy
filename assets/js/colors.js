@@ -1,5 +1,6 @@
 $(document).ready(function(){
-
+// createMenu(); 
+	//!!!!!!! Commenting this out until we further clean up code!!!!!!!!
 
 // Create a click event that will start the game
 $("#gameStart").hide();
