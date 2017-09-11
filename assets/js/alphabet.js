@@ -14,7 +14,7 @@ $(document).ready(function(){
 				title: "Alphabet Game",
 				correctLetter: "A",
 				fourRandomLettersArray: [],
-				alphabetArray: ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+				alphabetArray: ["А", "Б", "C", "D", "E", "F", "G", "І", "I", "Ї", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 			},
 			otherGame: {
 
