@@ -108,10 +108,27 @@ var gameObject = {
             "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
         ]
     },
+    animalGame: {
+        correctAnimal: "ants",
+        fourRandomAnimalsArray: [],
+        animalArray: ["ants", "alpaca", "antelope", "Bat", "beaver", "panther", "dragonfly", "pigeon", "prairie Dog", "dolphin", "Eagle", "Fish",
+         "Goose", "Hawk", "Impala", "jackal", "elephant", "Kangaroo", "Lion", "lady bug", 
+          "Monkey", "snail", "bird", "Ostrich", "Pig", "Quinling panda", "raccoon",
+           "Salamander", "owl", "squirrel", "seagull", "sealion", "Tiger", "Urchin", "Vulture", "wolf", "squirrel", 
+           "mongoose", "Zebra"]
+   },
     numbersGame: {
         correctNumber: "1",
         fourRandomNumbersArray: [],
         numbersArray: ["1", "2", "3", "4", "5", "6", "7", "8", "9"] // the number 0 has no giphy entry
+    },
+    mathGame: {
+        correctAnswer: "1",
+        correctQuestion: "",
+        fourRandomAnswersArray: [],
+        minimumNumber: -5,
+        maximumNumber: 10,
+        numberOfNumbers: 4
     }
 }
 
@@ -179,6 +196,11 @@ function clearDivs() {
 
 function getRandomFrom(thisNumber) {
     var returnValue = Math.floor(Math.random() * thisNumber);
+    return returnValue;
+}
+
+function getRandomFromMinMax(minNumber, maxNumber) {
+    var returnValue = Math.floor(Math.random() * (maxNumber - minNumber)) + minNumber;
     return returnValue;
 }
 
