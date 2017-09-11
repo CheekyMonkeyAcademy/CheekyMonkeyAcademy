@@ -107,6 +107,11 @@ var gameObject = {
             "I", "J", "K", "L", "M", "N", "O", "P", "Q",
             "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
         ]
+    },
+    numbersGame: {
+        correctNumber: "1",
+        fourRandomNumbersArray: [],
+        numbersArray: ["1", "2", "3", "4", "5", "6", "7", "8", "9"] // the number 0 has no giphy entry
     }
 }
 

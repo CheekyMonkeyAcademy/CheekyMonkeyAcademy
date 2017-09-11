@@ -2,7 +2,7 @@ $(document).ready(function() {
 
     computerSayThis("Welcome " + gameObject.userSettings.name + " let's play the Alphabet Game!")
     createMenu();
-    var letterToClick = "Click on " + gameObject.alphabetGame.correctLetter;
+    // var letterToClick = "Click on " + gameObject.alphabetGame.correctLetter;
 
     assignLetterAndCallForGifToDiv();
 
