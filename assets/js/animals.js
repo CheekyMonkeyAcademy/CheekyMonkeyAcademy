@@ -24,14 +24,6 @@ $(document).ready(function(){
 	};
 	
 
-
-
-	// console.log(gameObject)
-	// gameObject.divs.forEach(function(div) {
-	// 	console.log(div);
-	// });
-
-
 	var animalToClick = "Click on the animal" + gameObject.animalGame.correctAnimal;
 
 	// computerSayThis(animalToClick);
@@ -73,6 +65,7 @@ $(document).ready(function(){
 		}
 		// assign our 'winning' animal for this round.
 		gameObject.animalGame.correctAnimal = gameObject.animalGame.fourRandomAnimalsArray[getRandomFrom(4)];
+		sample();
 		// voice active asking kids to find said animal
 		computerSayThis("find " + gameObject.animalGame.correctAnimal);
 	}
@@ -124,7 +117,7 @@ $(document).ready(function(){
 		        var stillUrl = value.images.fixed_height_still.url;
 		        var rating = value.rating;
 
-				if (rating = "g") { // kids game, let's keep it clean - can variable this later.  
+				if (rating = "g") {
 			        var thisP = $("<p>");
 			        thisP.text("Rating: " + rating.toUpperCase());
 			        var targetParent = $("#" + div);
@@ -143,7 +136,6 @@ $(document).ready(function(){
 		    	}
 	      	});
 
-		// TODO insure that we are in compliance with the rating requested (more gifs required here);
 		});
 
 	}
@@ -161,7 +153,36 @@ $(document).ready(function(){
 			assignAnimalAndCallForGifToDiv();
 		}
 		else {
-			// TODO play a fun sound that is a 'nope'
+			
 		}
 	});
+
+
+ function sample() {
+    var searchTerm = gameObject.animalGame.correctAnimal;
+    var url =
+      "https://en.wikipedia.org/w/api.php?action=opensearch&search=" +
+      searchTerm +
+      "&format=json&callback=?&limit=1";
+    $.ajax({
+      type: "GET",
+      url: url,
+      async: false,
+      dataType: "json",
+      
+      success: function(data) {
+        // $(".question").html("<hr>");
+      
+        $("#resultbutton").attr("href", data[3][0]);
+        $("#resultbutton").html("Search Wikipedia for: " + searchTerm);
+  },
+      error: function(error) {
+        alert("error");
+      }
+    }); //ajax ends
+  }; 
+
+
+  
+
 });
