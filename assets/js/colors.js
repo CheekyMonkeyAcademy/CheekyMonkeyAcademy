@@ -1,5 +1,5 @@
 $(document).ready(function(){
-
+	// createMenu();
 
 // Create a click event that will start the game
 $("#gameStart").hide();
@@ -78,10 +78,7 @@ dropLoc.on("drop", function(event){
 		}
 	})//This is the end of the on drop function on line 34
 
-	// if(completionModalCounter === 0){
-	// 	$('#youWin').modal();
-	// } else {}
-
+	
 
 			
 
