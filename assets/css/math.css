@@ -74,3 +74,27 @@ body {
 .background-gray {
 	background-color:rgba(100, 100, 100, 1);
 }
+
+.relative {
+    position:relative;
+    padding:0;
+    width:100%;
+    padding:5%;
+    min-height:100%;
+} 
+
+.absolute {
+    position:absolute;
+    top:5%;
+    left:5%;
+    vertical-align: middle;
+    padding:0;
+    z-index:2;
+    background-color: rgba(175, 175, 175, .5);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    color:white;
+    font-size: 64px;
+    width:90%;
+    height:90%;
+}

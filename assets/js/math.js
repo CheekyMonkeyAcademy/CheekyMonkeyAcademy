@@ -19,7 +19,10 @@ $(document).ready(function() {
             getGifAndAssignToDiv(thisSearchTerm, thisDiv);
 
             var thisParentDiv = $("#" + thisDiv);
-            thisParentDiv.prepend(thisAnswer)
+            var newFloatingDiv = $("<div>");
+            newFloatingDiv.attr("class", "absolute");
+            newFloatingDiv.html(thisAnswer);
+            thisParentDiv.prepend(newFloatingDiv);
         }
         // assign our 'winning' letter for this round
         var thisRandom = getRandomFrom(4)
