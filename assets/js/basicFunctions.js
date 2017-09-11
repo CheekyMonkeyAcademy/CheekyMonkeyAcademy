@@ -78,7 +78,7 @@
         shapesGame: {
             correctShape: "Square",
             //fourRandomShapesArray: [],
-            shapesArray: ["Square", "Circle", "Triangle", "Rectangle", "Egg Shaped", "Diamond", "Polygon", "Sphere", "Rhombus", "Star", "Parallelogram"],
+            shapesArray: ["square", "circle", "triangle", "rectangle", "egg shaped", "diamond", "hexagon", "sphere", "rhombus", "star", "prism", "octogon", "zig zag", "bow tie"],
             colorArray: ["Red", "Blue", "Green", "Yellow", "Pink", "Black", "White", "Gold"]
         },
         alphabetGame: {
@@ -106,7 +106,7 @@
 
                     if (rating = "G") { // kids game, let's keep it clean - can variable this later.  
                         var thisP = $("<p>");
-                        thisP.text("Rating: " + rating.toUpperCase());
+                        thisP.text(rating.toUpperCase());
                         var targetParent = $("#" + div);
                         var thisDiv = $("<div>");
                         var thisGif = $("<img>");
