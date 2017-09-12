@@ -98,3 +98,7 @@ body {
     width:90%;
     height:90%;
 }
+
+.clear-both{
+    clear:both;
+}

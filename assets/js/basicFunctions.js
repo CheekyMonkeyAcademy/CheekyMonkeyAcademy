@@ -126,8 +126,8 @@ var gameObject = {
         correctAnswer: "1",
         correctQuestion: "",
         fourRandomAnswersArray: [],
-        minimumNumber: 1,
-        maximumNumber: 3,
+        minNumber: 1,
+        maxNumber: 3,
         numberOfNumbers: 2
     }
 }

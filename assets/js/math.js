@@ -7,6 +7,7 @@ $(document).ready(function() {
 
     function assignAnswerAndCallForGifToDiv() {
         clearDivs();
+        storeAndPopulateNumberVariables();
         getFourRandomAnswersIntoArray();
 
         for (i = 0; i < gameObject.mathGame.fourRandomAnswersArray.length; i++) {
@@ -41,8 +42,8 @@ $(document).ready(function() {
             var thisAnswer = 0;
             var thisQuestion = "";
             var questionAnswerArray = [];
-            var minNumber = gameObject.mathGame.minimumNumber;
-            var maxNumber = gameObject.mathGame.maximumNumber;
+            var minNumber = gameObject.mathGame.minNumber;
+            var maxNumber = gameObject.mathGame.maxNumber;
             var numberOfNumbers = gameObject.mathGame.numberOfNumbers;
 
             var addition = true; // TODO stub for later - maybe
@@ -65,9 +66,39 @@ $(document).ready(function() {
 
             questionAnswerArray = [thisQuestion, thisAnswer]
             gameObject.mathGame.fourRandomAnswersArray.push(questionAnswerArray);
-            console.log("final answers: " + gameObject.mathGame.fourRandomAnswersArray);
             // end addition (others not implemented yet)
         }
+    }
+
+    function storeAndPopulateNumberVariables() {
+        var minNumber = $("#minNumber").val();
+        var maxNumber = $("#maxNumber").val();
+        var numberOfNumbers = $("#numberOfNumbers").val();
+
+        console.log(gameObject.mathGame)
+        if (minNumber == "") {
+            console.log("min empty")
+            $("#minNumber").val(gameObject.mathGame.minNumber)
+        }
+        else {
+            console.log("min else")
+            gameObject.mathGame.minNumber = parseInt($("#minNumber").val());
+        }
+
+        if (maxNumber == "") {
+            $("#maxNumber").val(parseInt(gameObject.mathGame.maxNumber))
+        }
+        else {
+            gameObject.mathGame.maxNumber = parseInt($("#maxNumber").val());
+        }
+
+        if (numberOfNumbers == "") {
+            $("#numberOfNumbers").val(gameObject.mathGame.numberOfNumbers)
+        }
+        else {
+            gameObject.mathGame.numberOfNumbers = parseInt($("#numberOfNumbers").val());
+        }
+        // TODO store these in the user variables
     }
 
     $("#clicky-container").on("click", ".clickable", function() {
