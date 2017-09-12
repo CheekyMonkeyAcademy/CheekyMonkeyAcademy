@@ -1,5 +1,5 @@
 $(document).ready(function(){
-
+	createMenu(); 
 
 // Create a click event that will start the game
 $("#gameStart").hide();

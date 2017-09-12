@@ -50,8 +50,6 @@ h4 {
     }
 }
 
-
-
 /*Below are page stylings to update. */
 
 body {
@@ -124,3 +122,10 @@ p:nth-child(1) {
         transform: translate(35px);
     }
 }
+
+#account-details {
+    display: none;
+}
+
+
+
