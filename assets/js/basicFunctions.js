@@ -6,7 +6,7 @@ var gameObject = {
     userSettings: {
         name: "Kyle",
         gifMovement: true, //TODO implement
-        userSex: "M" 
+        userSex: "M"
     },
     gamesMenu: [
         ["index.html", "Home"],
@@ -14,7 +14,7 @@ var gameObject = {
         ["shapes.html", "Shapes Game"],
         ["colors.html", "Colors Game"],
         ["animals.html", "Animals Game"],
-        ["numbers.html", "Numbers Game"], 
+        ["numbers.html", "Numbers Game"],
         ["places.html", "Places Game"]
     ],
     //
@@ -48,7 +48,7 @@ var gameObject = {
             ],
             failure: [
                 "Please try again",
-                "This is not the droids you're looking for",
+                "These are not the droids you're looking for",
                 "Oops",
                 "Almost - try another",
                 "some of these are confusing",
@@ -88,6 +88,19 @@ var gameObject = {
             ]
         }
     },
+
+    // Animal Game array. Will re-activate upon animal.js cleanup 
+    // animalGame: {
+
+    //     correctAnimal: "ants",
+    //     fourRandomAnimalsArray: [],
+    //     animalArray: ["ants", "alpaca", "antelope", "Bat", "beaver", "panther", "dragonfly", "pigeon", "prairie Dog", "dolphin", "Eagle", "Fish",
+    //         "Goose", "Hawk", "Impala", "jackal", "elephant", "Kangaroo", "Lion", "lady bug",
+    //         "Monkey", "snail", "bird", "Ostrich", "Pig", "Quinling panda", "raccoon",
+    //         "Salamander", "owl", "squirrel", "seagull", "sealion", "Tiger", "Urchin", "Vulture", "wolf", "squirrel",
+    //         "mongoose", "Zebra"
+    //     ],
+    // },
     shapesGame: {
         correctShape: "Square",
         fourRandomShapesArray: [],
@@ -96,7 +109,7 @@ var gameObject = {
         // shapesArray: ["Square", "Circle", "Triangle", "Rectangle", "Egg Shaped", "Diamond", "Polygon", "Sphere", "Rhombus", "Star", "Parallelogram"],
         colorArray: ["Red", "Blue", "Green", "Yellow", "Pink", "Black", "White", "Gold"]
     },
-      placesGame: {
+    placesGame: {
         correctPlace: "san francisco",
         placesArray: ["san francisco", "new york city", "london", "paris", "the rocky mountains", "chicago"]
     },
@@ -152,7 +165,7 @@ function getGifAndAssignToDiv(searchTerm, div) {
 
             if (rating = "G") { // kids game, let's keep it clean - can variable this later.  
                 var thisP = $("<p>");
-                thisP.text("Rating: " + rating.toUpperCase());
+                thisP.text(rating.toUpperCase());
                 var targetParent = $("#" + div);
                 var thisDiv = $("<div>");
                 var thisGif = $("<img>");

@@ -11,100 +11,39 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!-- style sheet -->
-    <!-- link to basicFunctions js -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <link rel="stylesheet" type="text/css" href="assets/css/navBar.css">
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <!-- link to basicFunctions js -->
+    <script type="text/javascript" src="assets/js/basicFunctions.js"></script>
+    <!-- scripts for menu bar on index + firebase login info -->
+    <script type="text/javascript" src="assets/js/index.js"></script>
     <!-- FireBase -->
     <script src="https://cdn.firebase.com/libs/firebaseui/2.3.0/firebaseui.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
-    <!-- <script type="text/javascript" src="assets\js\login-firebase.js"></script> -->
-    <script>
-        var config = {
-            apiKey: "AIzaSyDfepSNI19ZoWaOPv52mXSUN4s_W8O8URg",
-            authDomain: "cheekymonkeyacademy-1a390.firebaseapp.com",
-            databaseURL: "https://cheekymonkeyacademy-1a390.firebaseio.com",
-            projectId: "cheekymonkeyacademy-1a390",
-            storageBucket: "",
-            messagingSenderId: "52825639428"
-        };
-        firebase.initializeApp(config);
-    </script>
-    <script type="text/javascript">
-      initApp = function() {
-        firebase.auth().onAuthStateChanged(function(user) {
-          if (user) {
-            // User is signed in.
-            var displayName = user.displayName;
-            var email = user.email;
-            var emailVerified = user.emailVerified;
-            var photoURL = user.photoURL;
-            var uid = user.uid;
-            var phoneNumber = user.phoneNumber;
-            var providerData = user.providerData;
-            user.getIdToken().then(function(accessToken) {
-              document.getElementById('sign-in-status').textContent = 'Signed in';
-              document.getElementById('sign-in').textContent = 'Sign out';
-              document.getElementById('account-details').textContent = JSON.stringify({
-                displayName: displayName,
-                email: email,
-                emailVerified: emailVerified,
-                phoneNumber: phoneNumber,
-                photoURL: photoURL,
-                uid: uid,
-                accessToken: accessToken,
-                providerData: providerData
-              }, null, '  ');
-            });
-          } else {
-            // User is signed out.
-            document.getElementById('sign-in-status').textContent = 'Signed out';
-            document.getElementById('sign-in').textContent = 'Sign in';
-            document.getElementById('account-details').textContent = 'null';
-          }
-        }, function(error) {
-          console.log(error);
-        });
-      };
-
-      window.addEventListener('load', function() {
-        initApp()
-      });
-    </script>
-    <!-- Moment.js -->
-    <!-- <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script> -->
 </head>
 
 <body>
     <div class="container-fluid">
         <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="index.html">Home</a>
-            <a href="alphabet.html">Alphabet Game</a>
-            <a href="colors.html">Colors Game</a>
-            <a href="shapes.html">Shapes Game</a>
-            <a href="numbers.html">Numbers Game</a>
-            <a href="animals.html">Animals Game</a>
-            <a href="index_wiki.html">Wiki Help</a>
         </div>
-
         <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
         <div class="row">
             <div class="col-sm-12">
-                <div class="text-center">
-                    <h1><strong>Cheeky Monkey Academy</strong></h1>
-                    <h4><strong>A CanBCheeky production</strong></h3>
+                <div class="text-center" id="indexHeader">
+                    <h1 id="indexHeader"><strong>Cheeky Monkey Academy</strong></h1>
+                    <h4 id="indexHeader"><strong>A CanBCheeky production</strong></h3>
         </div>
         </div>
         </div>
         </div>
         <div class="row">
             <div class="col-sm-12">
-                <!-- <img src="https://raw.githubusercontent.com/KyleKowalski/CheekyMonkeyAcademy/master/assets/images/cheekyMonkeyImage.jpg"> -->
-            </div>
+                           </div>
         </div>
     </div>
-    <script type="text/javascript" src="assets/js/navBar.js"></script>
 
     <hr> <!-- TODO this needs a home - maybe in the nav bar? -->
     <div><h1>Sign In (move and fix me)</h1></div>
