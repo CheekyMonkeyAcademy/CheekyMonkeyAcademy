@@ -48,7 +48,7 @@ var gameObject = {
             ],
             failure: [
                 "Please try again",
-                "This is not the droids you're looking for",
+                "These are not the droids you're looking for",
                 "Oops",
                 "Almost - try another",
                 "some of these are confusing",

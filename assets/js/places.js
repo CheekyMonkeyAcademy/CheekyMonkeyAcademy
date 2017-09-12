@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    computerSayThis("Welcome " + gameObject.userSettings.name + " let's find the places in this Game!")
     createMenu();
 
     var placesToClick = "Click on the place" + gameObject.placesGame.correctPlace;
@@ -14,7 +15,7 @@ $(document).ready(function() {
             var thisPlace = gameObject.placesGame.fourRandomPlacesArray[i];
             var thisSearchTerm = "place " + thisPlace;
 
-            getShapeAndAssignToDiv(thisSearchTerm, thisDiv);
+            getGifAndAssignToDiv(thisSearchTerm, thisDiv);
         }
 
         gameObject.placesGame.correctPlace = gameObject.placesGame.fourRandomPlacesArray[getRandomFrom(4)];
@@ -30,13 +31,15 @@ $(document).ready(function() {
         console.log(gameObject.placesGame.fourRandomPlacesArray);
     }
 
+    
     $("#clicky-container").on("click", ".gif", function() {
-    	if ($(this).attr("assigned_shape") === ("place " + gameObject.placesGame.correctPlace)) {
-    		computerSayThis("That place looks nice! That's " + gameObject.placesGame.correctPlace);
-    		assignPlaceAndCallForGifToDiv()
-    	} else {
-    		computerSayThis("Eww that is not the right town please select " + gameObject.placesGame.correctPlace);
-    	}
+        if ($(this).attr("assigned_thing") === ("place " + gameObject.placesGame.correctPlace)) {
+            computerSayThis("That place looks nice! That's " + gameObject.placesGame.correctPlace);
+            assignPlaceAndCallForGifToDiv()
+        } else {
+            getMessageForComputerToSay("failure");
+            computerSayThis("That is the " + $(this).attr("assigned_thing"));
+        }
     })
 
 }); //end of logic
