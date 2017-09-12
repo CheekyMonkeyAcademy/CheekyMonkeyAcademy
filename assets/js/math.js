@@ -33,7 +33,7 @@ $(document).ready(function() {
         gameObject.mathGame.correctQuestion = gameObject.mathGame.fourRandomAnswersArray[thisRandom][0]
         // voice active asking kids to find said letter
         computerSayThis("Please click the answer to " + gameObject.mathGame.correctQuestion);
-        $("#questionGoesHere").html("Solve this: " + gameObject.mathGame.correctQuestion)
+        $("#questionGoesHere").html("Solve this: <br>" + gameObject.mathGame.correctQuestion)
     }
 
     function getFourRandomAnswersIntoArray() {
