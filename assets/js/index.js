@@ -22,6 +22,7 @@ $(document).ready(function() {
             if (user) {
                 // User is signed in.
                 $("#signOutButton").removeClass("hidden");
+                $("#goToLoginPageButton").addClass("hidden");
 
                 var displayName = user.displayName;
                 // var email = user.email;
@@ -49,6 +50,7 @@ $(document).ready(function() {
                 document.getElementById('sign-in-status').textContent = 'Signed out';
                 document.getElementById('sign-in').textContent = 'Sign in';
                 $("#signOutButton").addClass("hidden");
+                $("#goToLoginPageButton").removeClass("hidden");
                 document.getElementById('account-details').textContent = 'null';
             }
         }, function(error) {
@@ -58,8 +60,7 @@ $(document).ready(function() {
 
     $("#signOutButton").click(function(){
         signOut();
-    })
-
+    });
 
     function signOut() {
         console.log("clicked on sign out")
@@ -79,16 +80,7 @@ $(document).ready(function() {
     //     displayName: inputDisplayName,
     //     email: inputEmail,
     //     profile_picture: photoURL,
-    //     uid: uid,
-
-    //     // phoneNumber: inputPhoneNumber,
-    //     // homeZip: inputHomeZip,
-    //     // workZip: inputWorkZip,
-    //     // emailNotification: emailCheck,
-    //     // smsNotification: notificationCheck,
-    //     // lastSMS: "",
-    //     // lastEmail: "",
-    //     // carrier: carrier
+    //     uid: uid
     // });
 
     // this function called from within the deleteModal in html

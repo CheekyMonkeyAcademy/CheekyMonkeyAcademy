@@ -22,7 +22,6 @@
     <!-- FireBase -->
     <script src="https://cdn.firebase.com/libs/firebaseui/2.3.0/firebaseui.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
-
 </head>
 
 <body>
@@ -35,14 +34,9 @@
             <div class="col-sm-12">
                 <div class="text-center" id="indexHeader">
                     <h1 id="indexHeader"><strong>Cheeky Monkey Academy</strong></h1>
-                    <h4 id="indexHeader"><strong>A CanBCheeky production</strong></h3>
-        </div>
-        </div>
-        </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-12">
-                           </div>
+                    <h4 id="indexHeader"><strong>A CanBCheeky production</strong></h4>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -50,17 +44,8 @@
     <div><h1>Sign In (move and fix me)</h1></div>
     <div id="sign-in-status"></div>
     <div id="sign-in"></div>
+    <button id="goToLoginPageButton" class="btn hidden" onclick="location.href='login.html';">Go To Login Page</button>
     <button id="signOutButton" class="btn hidden">Sign Out</button>
     <div id="account-details"></div>
-    <hr>
-
-    <div class="modal fade bs-example-modal-sm" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-        <div class="modal-dialog modal-sm" role="document">
-            <div class="modal-content">
-                <h3>You are logged in as:</h3>
-                <h3 id="displayName"></h3>
-            </div>
-        </div>
-    </div>
 </body>
 </html>
