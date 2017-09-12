@@ -1,24 +1,51 @@
 /* Come up with a font style for the NavBar:
 	div id="mySidenav"
-	can use a tag for styling font
+	can use a tag for styling font*/
 
-Shapes game:
+
+
+/*Shapes game:
 	h1 with it="title" with class=text-center
-	div id ="div0" throught 3 with text
+	div id ="div0" throught 3 with text*/
 
-Index has:
- 	h1 tag 93 and an h4 strong tag
+/*Index has:
+ 	h1 tag 93 and an h4 strong tag*/
 
-Colors has:
+/*Colors has:
 	 h1 with id=title
 	 with class text-center
 	 h2 tag for instructions
-	 h3 tag for clickin the button itself
+	 h3 tag for clickin the button itself*/
 
-Animals has:
+/*Animals has:
  h1 with id title and class tex-center
- div 0 through 3
+ div 0 through 3*/
 
-Alphabet has:
+/*Alphabet has:
 	h1 id=title with class text-center
-	div0 through 3 
+	div0 through 3 */
+
+#title {
+	font-family: 'Encode Sans Condensed', sans-serif;
+	font-family: 'Poppins', sans-serif;
+}
+
+#div0, #div1, #div2, #div3{
+	border: 5px solid #32CD32;
+}
+
+#div0 {
+	margin-top: 6px;
+	margin-right: 3px;
+	margin-bottom: 3px
+}
+
+#div1{
+	margin-top:6px;
+	margin-left:3px;
+	margin-bottom:3px;
+}
+
+#div2 {
+	margin-right: 6px;
+}

@@ -39,7 +39,6 @@ h4 {
 }
 
 
-
 @media screen and (max-height: 450px) {
     .sidenav {
         padding-top: 15px;
@@ -48,6 +47,7 @@ h4 {
         font-size: 18px;
     }
 }
+
 * {
 
 }
@@ -71,6 +71,8 @@ body {
 	padding:10px;
 }
 
-.background-gray {
-	background-color:rgba(100, 100, 100, 1);
+.background-yellow {
+	/*background-color:rgba(100, 100, 100, 1);*/
+    background-color: yellow;
+
 }
