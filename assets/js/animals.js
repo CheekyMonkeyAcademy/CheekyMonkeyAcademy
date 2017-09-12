@@ -9,18 +9,13 @@ $(document).ready(function(){
 				correctAnimal: "ants",
 				fourRandomAnimalsArray: [],
 				animalArray: ["ants", "alpaca", "antelope", "Bat", "beaver", "panther", "dragonfly", "pigeon", "prairie Dog", "dolphin", "Eagle", "Fish",
-				 "Goose", "Hawk", "Impala", "jackal", "elephant", "Kangaroo", "Lion", "lady bug", 
-				  "Monkey", "snail", "bird", "Ostrich", "Pig", "Quinling panda", "raccoon",
+				 "Goose", "Hawk", "Impala", "jackal", "elephant", "Kangaroo", "Lion", "spider", 
+				  "Monkey", "snail", "woodpecker", "Ostrich", "Pig", "Quinling panda", "raccoon",
 				   "Salamander", "owl", "squirrel", "seagull", "sealion", "Tiger", "Urchin", "Vulture", "wolf", "squirrel", 
 				   "mongoose", "Zebra"],
 				gifMovement: true
 			},
-			otherGame: {
-
-			},
-			yetAnotherGame: {
-
-			}
+		
 	};
 	
 
