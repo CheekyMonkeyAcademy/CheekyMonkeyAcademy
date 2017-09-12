@@ -13,26 +13,32 @@ $(document).ready(function() {
     };
     firebase.initializeApp(config);
 
+    window.addEventListener('load', function() {
+        initApp()
+    });
+
     initApp = function() {
         firebase.auth().onAuthStateChanged(function(user) {
             if (user) {
                 // User is signed in.
+                $("#signOutButton").removeClass("hidden");
+
                 var displayName = user.displayName;
-                var email = user.email;
-                var emailVerified = user.emailVerified;
-                var photoURL = user.photoURL;
+                // var email = user.email;
+                // var emailVerified = user.emailVerified;
+                // var photoURL = user.photoURL;
                 var uid = user.uid;
-                var phoneNumber = user.phoneNumber;
+                // var phoneNumber = user.phoneNumber;
                 var providerData = user.providerData;
                 user.getIdToken().then(function(accessToken) {
                     document.getElementById('sign-in-status').textContent = 'Signed in';
                     document.getElementById('sign-in').textContent = 'Sign out';
                     document.getElementById('account-details').textContent = JSON.stringify({
                         displayName: displayName,
-                        email: email,
-                        emailVerified: emailVerified,
-                        phoneNumber: phoneNumber,
-                        photoURL: photoURL,
+                        // email: email,
+                        // emailVerified: emailVerified,
+                        // phoneNumber: phoneNumber,
+                        // photoURL: photoURL,
                         uid: uid,
                         accessToken: accessToken,
                         providerData: providerData
@@ -42,6 +48,7 @@ $(document).ready(function() {
                 // User is signed out.
                 document.getElementById('sign-in-status').textContent = 'Signed out';
                 document.getElementById('sign-in').textContent = 'Sign in';
+                $("#signOutButton").addClass("hidden");
                 document.getElementById('account-details').textContent = 'null';
             }
         }, function(error) {
@@ -49,9 +56,56 @@ $(document).ready(function() {
         });
     };
 
-    window.addEventListener('load', function() {
-        initApp()
-    });
+    $("#signOutButton").click(function(){
+        signOut();
+    })
 
+
+    function signOut() {
+        console.log("clicked on sign out")
+        firebase.auth().signOut().then(function() {
+            window.location.assign("https://kylekowalski.github.io/CheekyMonkeyAcademy/");
+        }).catch(function(error) {
+            console.log(error);
+        });
+    }
+
+    // database.on("value", function(snapshot){
+    //     console.log(snapshot)
+    // });
+
+    // TODO this belongs in a storage area
+    // firebase.database().ref('users/' + uid).set({
+    //     displayName: inputDisplayName,
+    //     email: inputEmail,
+    //     profile_picture: photoURL,
+    //     uid: uid,
+
+    //     // phoneNumber: inputPhoneNumber,
+    //     // homeZip: inputHomeZip,
+    //     // workZip: inputWorkZip,
+    //     // emailNotification: emailCheck,
+    //     // smsNotification: notificationCheck,
+    //     // lastSMS: "",
+    //     // lastEmail: "",
+    //     // carrier: carrier
+    // });
+
+    // this function called from within the deleteModal in html
+    // function removeAccount() {
+    //     var user = firebase.auth().currentUser;
+    //     user.delete().then(function() {
+    //         database.child('users/' + uid).remove();
+    //         window.location.assign("https://fredlintz5.github.io/hailMinder/");
+
+    //     }).catch(function(error) {
+    //         console.log(error);
+    //     });
+    // }
+
+    // //  open modal which gives user a prompt to confirm delete account
+    // $('#deleteModal').click(function(event) {
+    //     $('#confirmModal').modal('toggle');
+    // });
 
 });
