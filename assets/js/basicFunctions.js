@@ -6,7 +6,12 @@ var gameObject = {
     userSettings: {
         name: "Kyle",
         gifMovement: true, //TODO implement
-        userSex: "M"
+        userSex: "M",
+        mathGame: {
+            minNumber: "",
+            maxNumber: "",
+            numberOfNumbers: ""
+        }
     },
     gamesMenu: [
         ["index.html", "Home"],
@@ -15,9 +20,9 @@ var gameObject = {
         ["colors.html", "Colors Game"],
         ["animals.html", "Animals Game"],
         ["numbers.html", "Numbers Game"],
+        ["math.html", "Math Game"],
         ["places.html", "Places Game"]
     ],
-    //
     timer: {
 
     },
@@ -88,19 +93,16 @@ var gameObject = {
             ]
         }
     },
-
-    // Animal Game array. Will re-activate upon animal.js cleanup 
-    // animalGame: {
-
-    //     correctAnimal: "ants",
-    //     fourRandomAnimalsArray: [],
-    //     animalArray: ["ants", "alpaca", "antelope", "Bat", "beaver", "panther", "dragonfly", "pigeon", "prairie Dog", "dolphin", "Eagle", "Fish",
-    //         "Goose", "Hawk", "Impala", "jackal", "elephant", "Kangaroo", "Lion", "lady bug",
-    //         "Monkey", "snail", "bird", "Ostrich", "Pig", "Quinling panda", "raccoon",
-    //         "Salamander", "owl", "squirrel", "seagull", "sealion", "Tiger", "Urchin", "Vulture", "wolf", "squirrel",
-    //         "mongoose", "Zebra"
-    //     ],
-    // },
+    animalGame: {
+        correctAnimal: "ants",
+        fourRandomAnimalsArray: [],
+        animalArray: ["ants", "alpaca", "antelope", "Bat", "beaver", "panther", "dragonfly", "pigeon", "prairie Dog", "dolphin", "Eagle", "Fish",
+            "Goose", "Hawk", "Impala", "jackal", "elephant", "Kangaroo", "Lion", "lady bug",
+            "Monkey", "snail", "bird", "Ostrich", "Pig", "Quinling panda", "raccoon",
+            "Salamander", "owl", "squirrel", "seagull", "sealion", "Tiger", "Urchin", "Vulture", "wolf", "squirrel",
+            "mongoose", "Zebra"
+        ],
+    },
     shapesGame: {
         correctShape: "Square",
         fourRandomShapesArray: [],
