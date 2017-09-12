@@ -25,10 +25,17 @@
 	h1 id=title with class text-center
 	div0 through 3 */
 
-#title {
+/*#title*/
+h1, h4 {
 	font-family: 'Encode Sans Condensed', sans-serif;
 	font-family: 'Poppins', sans-serif;
+	/*color: white;*/
 }
+
+.textColor{
+	color: white;
+}
+
 
 #div0, #div1, #div2, #div3{
 	border: 5px solid #32CD32;
@@ -49,3 +56,17 @@
 #div2 {
 	margin-right: 6px;
 }
+
+/*Changing the navbar hover color on the navBar css page
+	NOT THE STYLE CSS*/
+.sidenav {
+	background-color: #1e90ff;
+}
+
+.sidenav a:hover,
+.offcanvas a:focus {
+    /*color: #f1f1f1;*/
+    /*color: #1e90ff;*/
+    color:yellow;
+}
+

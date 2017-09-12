@@ -15,15 +15,18 @@
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
-    color: #818181;
+    /*color: #818181;*/
+    color: #ffffff;
     display: block;
     transition: 0.3s;
     font-family: 'Gloria Hallelujah', cursive;
 }
 
-.sidenav a:hover,
+
+.sidenav a:hover,   
 .offcanvas a:focus {
-    color: #f1f1f1;
+    /*color: #f1f1f1;*/
+    color:red;
 }
 
 .sidenav .closebtn {
@@ -34,10 +37,10 @@
     margin-left: 50px;
 }
 
-h1,
+/*h1,
 h4 {
     color: #123eef;
-}
+}*/
 
 
 
@@ -64,9 +67,9 @@ body {
 
 #title {
     background: #003973;
-    /* fallback for old browsers */
+    /* fallback for old browsers 
     background: -webkit-linear-gradient(to bottom, #E5E5BE, #003973);
-    /* Chrome 10-25, Safari 5.1-6 */
+    /* Chrome 10-25, Safari 5.1-6 
     background: linear-gradient(to bottom, #E5E5BE, #003973);
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */   
     color: black;
