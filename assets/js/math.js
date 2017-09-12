@@ -8,7 +8,6 @@ $(document).ready(function() {
     function assignAnswerAndCallForGifToDiv() {
         clearDivs();
         getFourRandomAnswersIntoArray();
-        assignQuestionAndAnswersToDivs();
 
         for (i = 0; i < gameObject.mathGame.fourRandomAnswersArray.length; i++) {
             var thisDiv = "div" + (i);
@@ -68,26 +67,6 @@ $(document).ready(function() {
             console.log("final answers: " + gameObject.mathGame.fourRandomAnswersArray);
             // end addition (others not implemented yet)
         }
-    }
-
-    function assignQuestionAndAnswersToDivs(div) {
-        console.log("question: " + gameObject.mathGame.correctQuestion);
-        
-
-        // var thisP = $("<p>");
-        // thisP.text("Rating: " + rating.toUpperCase());
-        // var targetParent = $("#" + div);
-        // var thisDiv = $("<div>");
-        // var thisGif = $("<img>");
-        // thisGif.attr("src", movingUrl);
-        // thisGif.attr("moving_url", movingUrl);
-        // thisGif.attr("static_url", stillUrl);
-        // thisGif.attr("current_state", "moving")
-        // thisGif.attr("assigned_thing", searchTerm);
-        // thisGif.attr("class", "gif");
-        // thisDiv.prepend(thisP);
-        // thisDiv.append(thisGif);
-        // targetParent.prepend(thisDiv);
     }
 
     $("#clicky-container").on("click", ".gif", function() {
