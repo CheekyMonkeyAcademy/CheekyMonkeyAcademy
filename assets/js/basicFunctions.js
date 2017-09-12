@@ -126,9 +126,9 @@ var gameObject = {
         correctAnswer: "1",
         correctQuestion: "",
         fourRandomAnswersArray: [],
-        minimumNumber: -5,
-        maximumNumber: 10,
-        numberOfNumbers: 4
+        minimumNumber: 1,
+        maximumNumber: 3,
+        numberOfNumbers: 2
     }
 }
 
@@ -200,6 +200,7 @@ function getRandomFrom(thisNumber) {
 }
 
 function getRandomFromMinMax(minNumber, maxNumber) {
+    maxNumber++ // this allows us to hit the max number
     var returnValue = Math.floor(Math.random() * (maxNumber - minNumber)) + minNumber;
     return returnValue;
 }

@@ -19,7 +19,8 @@ $(document).ready(function() {
 
             var thisParentDiv = $("#" + thisDiv);
             var newFloatingDiv = $("<div>");
-            newFloatingDiv.attr("class", "absolute");
+            newFloatingDiv.attr("class", "absolute clickable");
+            newFloatingDiv.attr("assigned_thing", gameObject.mathGame.fourRandomAnswersArray[i][1]);
             newFloatingDiv.html(thisAnswer);
             thisParentDiv.prepend(newFloatingDiv);
         }
@@ -27,7 +28,7 @@ $(document).ready(function() {
         var thisRandom = getRandomFrom(4)
         console.log(gameObject.mathGame)
 
-        gameObject.mathGame.correctAnswer = gameObject.mathGame.fourRandomAnswersArray[thisRandom][1];
+        gameObject.mathGame.correctAnswer = gameObject.mathGame.fourRandomAnswersArray[thisRandom][1].toString();
         gameObject.mathGame.correctQuestion = gameObject.mathGame.fourRandomAnswersArray[thisRandom][0]
         // voice active asking kids to find said letter
         computerSayThis("Please click the answer to " + gameObject.mathGame.correctQuestion);
@@ -69,14 +70,14 @@ $(document).ready(function() {
         }
     }
 
-    $("#clicky-container").on("click", ".gif", function() {
+    $("#clicky-container").on("click", ".clickable", function() {
+        console.log(gameObject.mathGame)
         if ($(this).attr("assigned_thing") === (gameObject.mathGame.correctAnswer)) {
             getMessageForComputerToSay("success");
             computerSayThis("You clicked the " + gameObject.mathGame.correctAnswer);
             assignAnswerAndCallForGifToDiv();
         } else {
             getMessageForComputerToSay("failure");
-            computerSayThis("That is the " + $(this).attr("assigned_thing"));
         }
     });
 });
