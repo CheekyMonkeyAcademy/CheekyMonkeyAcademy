@@ -147,7 +147,7 @@ function getGifAndAssignToDiv(searchTerm, div) {
 
             if (rating = "G") { // kids game, let's keep it clean - can variable this later.  
                 var thisP = $("<p>");
-                thisP.text("Rating: " + rating.toUpperCase());
+                thisP.text(rating.toUpperCase());
                 var targetParent = $("#" + div);
                 var thisDiv = $("<div>");
                 var thisGif = $("<img>");
