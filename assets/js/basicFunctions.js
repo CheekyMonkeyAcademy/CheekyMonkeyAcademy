@@ -21,7 +21,8 @@ var gameObject = {
         ["animals.html", "Animals Game"],
         ["numbers.html", "Numbers Game"],
         ["math.html", "Math Game"],
-        ["places.html", "Places Game"]
+        ["places.html", "Places Game"],
+        ["login.html", "Login Menu"]
     ],
     timer: {
 
