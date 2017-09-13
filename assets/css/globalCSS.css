@@ -5,7 +5,7 @@
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: rgba(40, 40, 40, .9);
+    background-color: rgba(255, 255, 255, .75);
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
@@ -15,7 +15,7 @@
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
-    color: #818181;
+    color: black;
     display: block;
     transition: 0.3s;
     font-family: 'Gloria Hallelujah', cursive;
@@ -23,7 +23,7 @@
 
 .sidenav a:hover,
 .offcanvas a:focus {
-    color: #f1f1f1;
+    color: #c2ff00;
 }
 
 .sidenav .closebtn {
@@ -50,6 +50,37 @@ h4 {
     }
 }
 
+body {
+	background-color: rgba(28, 234, 243, .3);
+
+}
+.gif {
+	padding: 15px;
+}
+
+#div0 {
+    background-color: yellow;
+    border: 5px ridge #57be12;
+    margin: 5px;
+}
+
+#div1 {
+    border: 5px ridge #e421ec;
+    margin: 5px;
+}
+
+#div2 {
+    border: 5px ridge #29f5f5;
+    margin: 5px;
+}
+
+#div3 {
+    background-color: orange;
+    border: 5px ridge #f0fa08;
+    margin: 5px;
+}
+
+
 
 
 /* Come up with a font style for the NavBar:
@@ -75,4 +106,4 @@ Animals has:
 
 Alphabet has:
 	h1 id=title with class text-center
-	div0 through 3 
+	div0 through 3
