@@ -1,8 +1,7 @@
 var gameObject = {
 
     divs: ["div0", "div1", "div2", "div3"],
-    fourRandomShapesArray: [],
-    //firebase logins
+       //firebase logins
     userSettings: {
         name: "Kyle",
         gifMovement: true, //TODO implement
@@ -124,15 +123,7 @@ var gameObject = {
             "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
         ]
     },
-    animalGame: {
-        correctAnimal: "ants",
-        fourRandomAnimalsArray: [],
-        animalArray: ["ants", "alpaca", "antelope", "Bat", "beaver", "panther", "dragonfly", "pigeon", "prairie Dog", "dolphin", "Eagle", "Fish",
-         "Goose", "Hawk", "Impala", "jackal", "elephant", "Kangaroo", "Lion", "lady bug", 
-          "Monkey", "snail", "bird", "Ostrich", "Pig", "Quinling panda", "raccoon",
-           "Salamander", "owl", "squirrel", "seagull", "sealion", "Tiger", "Urchin", "Vulture", "wolf", "squirrel", 
-           "mongoose", "Zebra"]
-   },
+   
     numbersGame: {
         correctNumber: "1",
         fourRandomNumbersArray: [],
@@ -146,7 +137,7 @@ var gameObject = {
         maxNumber: 3,
         numberOfNumbers: 2
     }
-}
+};
 
 function createMenu() {
     for (var i = 0; i < gameObject.gamesMenu.length; i++) {
@@ -192,7 +183,7 @@ function getGifAndAssignToDiv(searchTerm, div) {
                 thisGif.attr("src", movingUrl);
                 thisGif.attr("moving_url", movingUrl);
                 thisGif.attr("static_url", stillUrl);
-                thisGif.attr("current_state", "moving")
+                thisGif.attr("current_state", "moving");
                 thisGif.attr("assigned_thing", searchTerm);
                 thisGif.attr("class", "gif");
                 thisDiv.prepend(thisP);
@@ -253,3 +244,28 @@ function getMessageForComputerToSay(successOrFailure) {
 
     computerSayThis(returnMessage);
 }
+
+ function getWikipediaEntry(searchTerm) {
+    
+    var url =
+      "https://en.wikipedia.org/w/api.php?action=opensearch&search=" +
+      searchTerm +
+      "&format=json&callback=?&limit=1";
+    $.ajax({
+      type: "GET",
+      url: url,
+      async: false,
+      dataType: "json",
+      
+      success: function(data) {
+      
+        $("#resultbutton").attr("href", data[3][0]);
+        $("#resultbutton").html("Search Wikipedia for: " + searchTerm);
+  },
+      error: function(error) {
+        alert("error");
+      }
+    }); //ajax ends
+  }
+
+

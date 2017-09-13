@@ -12,7 +12,7 @@ $(document).ready(function() {
 
         for (i = 0; i < gameObject.alphabetGame.fourRandomLettersArray.length; i++) {
             var thisDiv = "div" + (i);
-            var thisLetter = gameObject.alphabetGame.fourRandomLettersArray[i]
+            var thisLetter = gameObject.alphabetGame.fourRandomLettersArray[i];
             var thisSearchTerm = "alphabet letter " + thisLetter;
 
             getGifAndAssignToDiv(thisSearchTerm, thisDiv);
