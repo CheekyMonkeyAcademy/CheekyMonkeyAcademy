@@ -18,7 +18,9 @@ $(document).ready(function() {
         }
         // assign our 'winning' letter for this round
         gameObject.numbersGame.correctNumber = gameObject.numbersGame.fourRandomNumbersArray[getRandomFrom(4)];
-        // voice active asking kids to find said letter
+       
+       getWikipediaEntry(gameObject.numbersGame.correctNumber);
+       
         computerSayThis("Please click the image for " + gameObject.numbersGame.correctNumber);
     }
 

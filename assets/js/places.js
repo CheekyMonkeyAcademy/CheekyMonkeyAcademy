@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    computerSayThis("Welcome " + gameObject.userSettings.name + " let's find the places in this Game!")
+    computerSayThis("Welcome " + gameObject.userSettings.name + " let's find the places in this Game!");
     createMenu();
 
     var placesToClick = "Click on the place" + gameObject.placesGame.correctPlace;
@@ -19,6 +19,8 @@ $(document).ready(function() {
         }
 
         gameObject.placesGame.correctPlace = gameObject.placesGame.fourRandomPlacesArray[getRandomFrom(4)];
+
+getWikipediaEntry(gameObject.placesGame.correctPlace);
 
         computerSayThis("Please click on the image of " + gameObject.placesGame.correctPlace);
     }

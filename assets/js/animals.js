@@ -18,7 +18,8 @@ $(document).ready(function(){
 		}
 		// assign our 'winning' animal for this round.
 		gameObject.animalGame.correctAnimal = gameObject.animalGame.fourRandomAnimalsArray[getRandomFrom(4)];
-		getWikipediaEntry();
+
+		getWikipediaEntry(gameObject.animalGame.correctAnimal);
 		// voice active asking kids to find said animal
 		computerSayThis("find " + gameObject.animalGame.correctAnimal);
 	}
@@ -44,28 +45,5 @@ $(document).ready(function(){
 		}
 	});
 
-
- function getWikipediaEntry() {
-    var searchTerm = gameObject.animalGame.correctAnimal;
-    var url =
-      "https://en.wikipedia.org/w/api.php?action=opensearch&search=" +
-      searchTerm +
-      "&format=json&callback=?&limit=1";
-    $.ajax({
-      type: "GET",
-      url: url,
-      async: false,
-      dataType: "json",
-      
-      success: function(data) {
-      
-        $("#resultbutton").attr("href", data[3][0]);
-        $("#resultbutton").html("Search Wikipedia for: " + searchTerm);
-  },
-      error: function(error) {
-        alert("error");
-      }
-    }); //ajax ends
-  }; 
 
 });
