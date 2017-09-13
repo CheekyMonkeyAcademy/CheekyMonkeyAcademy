@@ -1,35 +1,43 @@
-#title{
-	background-color: salmon;
-	text-align: center;
-	font-size: 50px;
-	padding: 50px;
-	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+#title {
+    /*background-color: salmon;*/
+    text-align: center;
+    font-size: 50px;
+    padding: 50px;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
 
 #imageContainer {
-	border-color: black;
-	border-style: solid;
-	border-width: 5px;
-	height:500px;
-	width:1000px;
-	margin: 0 auto;
+    border-color: black;
+    border-style: solid;
+    border-width: 5px;
+    height: 500px;
+    width: 1000px;
+    margin: 0 auto;
 }
 
-body{
-	background-color: rgba(32,178,170, 0.3);
+body {
+    /*background-color: rgba(32, 178, 170, 0.3);*/
+    background: #ADA996;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .container-fluid {
-	text-align: center;
-	margin-left: 25%;
-
+    text-align: center;
+    margin-left: 25%;
 }
 
-#instructions{
-	text-align: center;
-	font-size: 35px;
-	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+#instructions {
+    text-align: center;
+    font-size: 35px;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
+
+
+
 
 /*button{
 	padding: 25px;
@@ -39,10 +47,14 @@ body{
 	border: 2px solid black;
 }
 */
+
 .modal {
-	padding: 40px;
-	font-size: 30px;
+    padding: 40px;
+    font-size: 30px;
 }
+
+
+
 
 /*#fullBox{
 	padding: 40px;
@@ -54,17 +66,18 @@ body{
 	font-size: 30px;
 }
 */
-img{
-	width:150px;
-	margin:10px;
-	height: 100px;	
-	position: relative;
-	float: left;
+
+img {
+    width: 150px;
+    margin: 10px;
+    height: 100px;
+    position: relative;
+    float: left;
 }
 
-#redImages{
-	border:5px solid red;
-	/*height: 100px;
+#redImages {
+    border: 5px solid red;
+    /*height: 100px;
 	width: 150px;
 	position:relative;
 	float:left;
@@ -72,51 +85,50 @@ img{
 }
 
 .matchingBox {
-	/*text-align: center;*/
-	height: 100px;
-	width: 150px;
-	position: relative;
-	float:left;
-	margin:5px;
-	}
-
-#blueImages{
-	border:5px solid blue;
+    /*text-align: center;*/
+    height: 100px;
+    width: 150px;
+    position: relative;
+    float: left;
+    margin: 5px;
 }
 
-#yellowImages{
-	border: 5px solid yellow;
-	/*height: 100px;
-	width: 150px;
-	position: relative;
-	float:left;*/
+#blueImages {
+    border: 5px solid blue;
 }
 
-#greenImages{
-	border: 5px solid green;
-	/*height: 100px;
-	width: 150px;
-	position: relative;
-	float:left;*/
-	} 
-
-#orangeImages{
-	border: 5px solid orange;
-	/*height: 100px;
+#yellowImages {
+    border: 5px solid yellow;
+    /*height: 100px;
 	width: 150px;
 	position: relative;
 	float:left;*/
 }
 
-#boxRow1{
-	margin-left: 100px;
+#greenImages {
+    border: 5px solid green;
+    /*height: 100px;
+	width: 150px;
+	position: relative;
+	float:left;*/
 }
 
-#boxRow2{
-	margin-left: 100px;
+#orangeImages {
+    border: 5px solid orange;
+    /*height: 100px;
+	width: 150px;
+	position: relative;
+	float:left;*/
 }
 
-#boxRow3{
-	margin-left: 100px;
+#boxRow1 {
+    margin-left: 100px;
 }
 
+#boxRow2 {
+    margin-left: 100px;
+}
+
+#boxRow3 {
+    margin-left: 100px;
+}

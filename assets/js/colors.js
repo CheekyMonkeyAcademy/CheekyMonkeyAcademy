@@ -7,7 +7,7 @@ $("#start-game-btn").on("click", function(){
 	$("#gameStart").show();   
 	// $("#start-game-btn").hide();  
 	$("#instructions").hide();  
-	$("body").css("background-color","#FEFBF7");                                                                  
+	$("body").css("background-color","#ffffff");                                                                  
 }) //End of click function for start game button
 
 //Create a click and drag event for the current image on the screen

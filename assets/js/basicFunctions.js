@@ -214,6 +214,7 @@ function getRandomFromMinMax(minNumber, maxNumber) {
 
 function computerSayThis(thingsToSay) {
     var msg = new SpeechSynthesisUtterance(thingsToSay);
+    var voices = window.speechSynthesis.getVoices(msg);
     window.speechSynthesis.speak(msg);
 }
 
