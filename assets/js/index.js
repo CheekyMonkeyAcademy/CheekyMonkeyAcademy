@@ -1,5 +1,4 @@
 $(document).ready(function() {
-    // computerSayThis("Welcome to Cheeky Monkey Academy, please select a game to play.");
     createMenu();
     //add firebase logic
 
@@ -20,7 +19,10 @@ $(document).ready(function() {
 
     var database = firebase.database();
     validateUser();
-    // console.log(database)
+    
+    console.log(gameObject.userSettings);
+    computerSayThis("Welcome to Cheeky Monkey Academy " + gameObject.userSettings.name + " , please select a game to play.");
+    
 
     window.addEventListener('load', function() {
         initApp()
@@ -80,10 +82,10 @@ $(document).ready(function() {
     }
 
     function validateUser() {
-        console.log("called validate user");
+        // console.log("called validate user");
         database.ref().on("value", function(snapshot) {
             if (snapshot.child("users/" + gameObject.userSettings.userId).exists()) {
-                console.log("this user exists");
+                UpdateUserInFirebase();
             }
             else {
                 console.log("user doesn't exist, let's create them");
@@ -91,38 +93,56 @@ $(document).ready(function() {
                 firebase.database().ref("users/" + gameObject.userSettings.userId).set({
                     displayName: gameObject.userSettings.displayName,
                     email: gameObject.userSettings.email,
-                    emailVerified: gameObject.userSettings.emailVerified
-                })
+                    emailVerified: gameObject.userSettings.emailVerified,
+                    name: gameObject.userSettings.name,
+                    userSex: gameObject.userSettings.userSex,
+                    gifMovement: gameObject.userSettings.gifMovement
+                });
             }
 
-        })
-
+        });
         // if they exist, check current displayName, email, and verified email
     }
 
     function createUserInFirebase() {
-        updateUserInFirebase("displayName", gameObject.userSettings.displayName);
-        updateUserInFirebase("email", gameObject.userSettings.email);
-        updateUserInFirebase("emailVerified", gameObject.userSettings.emailVerified);
+        console.log("called create user in firebase");
+        console.log(gameObject.userSettings);
+        if (gameObject.userSettings.userId != "") {
+            updateUserFieldInFirebase("displayName", gameObject.userSettings.displayName);
+            updateUserFieldInFirebase("email", gameObject.userSettings.email);
+            updateUserFieldInFirebase("emailVerified", gameObject.userSettings.emailVerified);
+        }
+        else {
+            console.log("Create User in Firebase called without user Id - error logged");
+        }
     }
 
-    function updateUserInFirebase(fieldToUpdate, valueUpdatedTo) {
-        firebase.database().ref("users/" + gameObject.userSettings.userId).update({
-            fieldToUpdate: valueUpdatedTo
-        });
+    function getUserInformationFromFirebase() {
+        // TODO implement this
+        var myInt = 1;
     }
 
-    // database.on("value", function(snapshot){
-    //     console.log(snapshot)
-    // });
+    function UpdateUserInFirebase() {
+        console.log("called update user in firebase");
+        console.log(gameObject.userSettings);
+        if (gameObject.userSettings.userId != "") {
+            // TODO grab the HTML variables
+            gameObject.userSettings.name = "Kyle" // THIS IS A TEST ONLY
+        
 
-    // TODO this belongs in a storage area
-    // firebase.database().ref('users/' + uid).set({
-    //     displayName: inputDisplayName,
-    //     email: inputEmail,
-    //     profile_picture: photoURL,
-    //     uid: uid
-    // });
+            firebase.database().ref("users/" + gameObject.userSettings.userId).update({
+                displayName: gameObject.userSettings.displayName,
+                email: gameObject.userSettings.email,
+                emailVerified: gameObject.userSettings.emailVerified,
+                name: gameObject.userSettings.name,
+                userSex: gameObject.userSettings.userSex,
+                gifMovement: gameObject.userSettings.gifMovement
+            });
+        }
+        else {
+            console.log("Update user in Firebase called without user Id - error logged");
+        }
+    }
 
     // this function called from within the deleteModal in html
     // function removeAccount() {

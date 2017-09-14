@@ -2,13 +2,13 @@ var gameObject = {
 
     divs: ["div0", "div1", "div2", "div3"],
     fourRandomShapesArray: [],
-    //firebase logins
+    //firebase login based settings
     userSettings: {
         userId: "",
         displayName: "",
-        name: "Kyle",
+        name: "",
         gifMovement: true, //TODO implement
-        userSex: "M"
+        userSex: ""
     },
     gamesMenu: [
         ["index.html", "Home"],
