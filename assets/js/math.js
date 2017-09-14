@@ -50,13 +50,6 @@ $(document).ready(function() {
             var maxNumber = gameObject.mathGame.maxNumber;
             var numberOfNumbers = gameObject.mathGame.numberOfNumbers;
 
-            // var addition = true; // TODO stub for later - maybe
-            // var subtraction = false; // TODO stub for later - maybe
-            // var multiplication = false; // TODO stub for later - maybe
-            // var division = false; // TODO stub for later - maybe
-
-            // addition
-            // function addition () {
             for (num = 0; num < numberOfNumbers; num++) {
                 var addMe = getRandomFromMinMax(minNumber, maxNumber);
           
@@ -85,57 +78,8 @@ $(document).ready(function() {
 
             questionAnswerArray = [thisQuestion, thisAnswer];
 
-
-           
-            // substraction
- //            function substraction () {
- //            for (num = 0; num < numberOfNumbers; num++) {
- //                var addMeS = getRandomFromMinMax(minNumber, maxNumber);
- //                thisAnswerS -= addMeS;
- //                if (thisQuestion === "") {
- //                    thisQuestion = "(" + addMeS.toString();
- //                }
- //                else {
- //                    thisQuestion = thisQuestion + " - " + addMeS.toString();
- //                }
- //            }
- //            thisQuestion = thisQuestion + ")";
-
- //            questionAnswerArray = [thisQuestion, thisAnswerS];
-
- // // multiplication
- // function multiplication () {
- //            for (num = 0; num < numberOfNumbers; num++) {
- //                var addMeM = getRandomFromMinMax(minNumber, maxNumber);
- //                thisAnswerM = thisAnswerM * addMeM;
- //                if (thisQuestion === "") {
- //                    thisQuestion = "(" + addMeM.toString();
- //                }
- //                else {
- //                    thisQuestion = thisQuestion + "&times;" + addMeM.toString();
- //                }
- //            }
- //            thisQuestion = thisQuestion + ")";
-
- //            questionAnswerArray = [thisQuestion, thisAnswerM];
-
- //            // division
- //            function division () {
- //            for (num = 0; num < numberOfNumbers; num++) {
- //                var addMeD = getRandomFromMinMax(minNumber, maxNumber);
- //                thisAnswerD /= addMeD;
- //                if (thisQuestion === "") {
- //                    thisQuestion = "(" + addMeD.toString();
- //                }
- //                else {
- //                    thisQuestion = thisQuestion + "&divide;" + addMeD.toString();
- //                }
- //            }
- //            thisQuestion = thisQuestion + ")";
-
- //            questionAnswerArray = [thisQuestion, thisAnswerD];
-
-            gameObject.mathGame.fourRandomAnswersArray.push(questionAnswerArray);
+          
+                   gameObject.mathGame.fourRandomAnswersArray.push(questionAnswerArray);
             // end addition (others not implemented yet)
   }   
   }   
@@ -168,7 +112,7 @@ $(document).ready(function() {
         else {
             gameObject.mathGame.numberOfNumbers = parseInt($("#numberOfNumbers").val());
         }
-        // TODO store these in the user variables
+    
     }
 
     $("#clicky-container").on("click", ".clickable", function() {
@@ -181,17 +125,23 @@ $(document).ready(function() {
             getMessageForComputerToSay("failure");
         }
 
-        // var addition = true; // TODO stub for later - maybe
-        // var subtraction = true; // TODO stub for later - maybe
-        // var multiplication = true; // TODO stub for later - maybe
-        // var division = true; // TODO stub for later - maybe
+   $(".radio").click(function() {
 
-        // division();
-        // multiplication();
-        // addition();
-        // substraction();
 
- // $("#operator").on("click", ".clickable", function() {
- //        console.log(addition);
+    if (mathType === "addition") {
+     getFourRandomAnswersIntoArray("addition");
+    } else if (mathType === "multiplication") {
+      getFourRandomAnswersIntoArray("multiplication");
+    } else if (mathType === "substraction") {
+        getFourRandomAnswersIntoArray("substraction");
+    } else if (mathType === "division") {
+    getFourRandomAnswersIntoArray("division");
+}
+      
+ 
+   });
+  
+
     });
-    });
+
+       });   
