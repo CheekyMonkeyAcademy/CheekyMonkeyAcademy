@@ -50,7 +50,7 @@ function storeAndPopulateAmountOfCards() {
 	})
 }
 
-// storeAndPopulateAmountOfCards();
+storeAndPopulateAmountOfCards();
 
 //STEP 3: Reset the board for player to play again 
 function resetTheBoard (){
@@ -65,11 +65,10 @@ resetTheBoard();
 
 //STEP 5: API FOR IMAGES 
 function assignSportImageToCard(searchSport){
-	storeAndPopulateAmountOfCards();
 	var apiKey = "y482smscwdrv44u8raqcw77t";
 	var appendApiKeyHeader = function( xhr ) {
-		xhr.setRequestHeader('Api-Key', apiKey)
-	};
+		xhr.setRequestHeader('Api-Key', apiKey);
+	}
 
 	$.ajax({
 		type: "GET",
@@ -77,30 +76,28 @@ function assignSportImageToCard(searchSport){
 		url: "https://api.gettyimages.com/v3/search/images?fields=id,title,thumb,referral_destinations&sort_order=best&phrase=" + searchSport
 	})
 	.done(function(responseData){
+		var imageToBeMatched = responseData.images[0].display_sizes[0].uri
 		console.log(responseData);
 		console.log(responseData.images[0].display_sizes[0].uri);
-		//THE FOLLOWING CODE, I AM NOT SURE ABOUT!!!
-		var imageResults = responseData.images[0].display_sizes[0].uri;
-			for (var i = 0; i < imageResults; i++) {
-				$("<img>").append(imageResults);
-				$("<div>").append("<img>");
-			}
-
-	})
-
-
-
+		
+		}
+	}
 }
-
-assignSportImageToCard();
-
-
-
-
 
 
 
 
 }) //End of the document.ready function 
+
+
+
+
+
+
+
+
+
+
+
 
 
