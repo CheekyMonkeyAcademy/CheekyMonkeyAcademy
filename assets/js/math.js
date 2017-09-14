@@ -8,15 +8,15 @@ $(document).ready(function() {
     function assignAnswerAndCallForGifToDiv() {
         clearDivs();
         storeAndPopulateNumberVariables();
-        getFourRandomAnswersIntoArray();
+        getFourRandomAnswersIntoArray("addition");
+        getFourRandomAnswersIntoArray("substraction");
+        getFourRandomAnswersIntoArray("multiplication");
+        getFourRandomAnswersIntoArray("division");
 
         for (i = 0; i < gameObject.mathGame.fourRandomAnswersArray.length; i++) {
             var thisDiv = "div" + (i);
-            var thisAnswerA = gameObject.mathGame.fourRandomAnswersArray[i][1];
-            var thisAnswerM = gameObject.mathGame.fourRandomAnswersArray[i][1];
-            var thisAnswerD = gameObject.mathGame.fourRandomAnswersArray[i][1];
-            var thisAnswerS = gameObject.mathGame.fourRandomAnswersArray[i][1];
-            var randomAnimal = gameObject.animalGame.animalArray[getRandomFrom(gameObject.animalGame.animalArray.length)];
+            var thisAnswer = gameObject.mathGame.fourRandomAnswersArray[i][1];
+             var randomAnimal = gameObject.animalGame.animalArray[getRandomFrom(gameObject.animalGame.animalArray.length)];
             var thisSearchTerm = "nature " + randomAnimal;
 
             getGifAndAssignToDiv(thisSearchTerm, thisDiv);
@@ -25,10 +25,8 @@ $(document).ready(function() {
             var newFloatingDiv = $("<div>");
             newFloatingDiv.attr("class", "absolute clickable");
             newFloatingDiv.attr("assigned_thing", gameObject.mathGame.fourRandomAnswersArray[i][1]);
-            newFloatingDiv.html(thisAnswerA);
-            newFloatingDiv.html(thisAnswerM);
-            newFloatingDiv.html(thisAnswerD);
-            newFloatingDiv.html(thisAnswerS);
+            newFloatingDiv.html(thisAnswer);
+      
             thisParentDiv.prepend(newFloatingDiv);
         }
         // assign our 'winning' letter for this round
@@ -42,13 +40,10 @@ $(document).ready(function() {
         $("#questionGoesHere").html("Solve this: <br>" + gameObject.mathGame.correctQuestion);
     }
 
-    function getFourRandomAnswersIntoArray() {
+    function getFourRandomAnswersIntoArray(mathType) {
         gameObject.mathGame.fourRandomAnswersArray = [];
         for (i = 0; i < 4; i++) {
-            var thisAnswerA = 0;
-            var thisAnswerM = 1;
-            var thisAnswerD = 1;
-            var thisAnswerS = 0;
+            var thisAnswer = 0;
             var thisQuestion = "";
             var questionAnswerArray = [];
             var minNumber = gameObject.mathGame.minNumber;
@@ -61,71 +56,89 @@ $(document).ready(function() {
             // var division = false; // TODO stub for later - maybe
 
             // addition
+            // function addition () {
             for (num = 0; num < numberOfNumbers; num++) {
-                var addMeA = getRandomFromMinMax(minNumber, maxNumber);
-                thisAnswerA += addMeA;
+                var addMe = getRandomFromMinMax(minNumber, maxNumber);
+          
                 if (thisQuestion === "") {
-                    thisQuestion = "(" + addMeA.toString();
+                    thisQuestion = "(" + addMe.toString();
+                    thisAnswer = addMe;
                 }
-                else {
-                    thisQuestion = thisQuestion + " + " + addMeA.toString();
+                else if (mathType === "addition") {
+                    thisQuestion = thisQuestion + " + " + addMe.toString();
+                    thisAnswer += addMe;
+                }
+                  else if (mathType === "multiplication") {
+                    thisQuestion = thisQuestion + " * " + addMe.toString();
+                    thisAnswer = thisAnswer * addMe;
+                }
+                  else if (mathType === "substraction") {
+                    thisQuestion = thisQuestion + " - " + addMe.toString();
+                    thisAnswer -= addMe;
+                }
+                  else if (mathType === "division") {
+                    thisQuestion = thisQuestion + " / " + addMe.toString();
+                    thisAnswer = thisAnswer / addMe;
                 }
             }
             thisQuestion = thisQuestion + ")";
 
-            questionAnswerArray = [thisQuestion, thisAnswerA];
+            questionAnswerArray = [thisQuestion, thisAnswer];
 
 
            
             // substraction
-            for (num = 0; num < numberOfNumbers; num++) {
-                var addMeS = getRandomFromMinMax(minNumber, maxNumber);
-                thisAnswerS -= addMeS;
-                if (thisQuestion === "") {
-                    thisQuestion = "(" + addMeS.toString();
-                }
-                else {
-                    thisQuestion = thisQuestion + " - " + addMeS.toString();
-                }
-            }
-            thisQuestion = thisQuestion + ")";
+ //            function substraction () {
+ //            for (num = 0; num < numberOfNumbers; num++) {
+ //                var addMeS = getRandomFromMinMax(minNumber, maxNumber);
+ //                thisAnswerS -= addMeS;
+ //                if (thisQuestion === "") {
+ //                    thisQuestion = "(" + addMeS.toString();
+ //                }
+ //                else {
+ //                    thisQuestion = thisQuestion + " - " + addMeS.toString();
+ //                }
+ //            }
+ //            thisQuestion = thisQuestion + ")";
 
-            questionAnswerArray = [thisQuestion, thisAnswerS];
+ //            questionAnswerArray = [thisQuestion, thisAnswerS];
 
- // multiplication
-            for (num = 0; num < numberOfNumbers; num++) {
-                var addMeM = getRandomFromMinMax(minNumber, maxNumber);
-                thisAnswerM = thisAnswerM * addMeM;
-                if (thisQuestion === "") {
-                    thisQuestion = "(" + addMeM.toString();
-                }
-                else {
-                    thisQuestion = thisQuestion + " * " + addMeM.toString();
-                }
-            }
-            thisQuestion = thisQuestion + ")";
+ // // multiplication
+ // function multiplication () {
+ //            for (num = 0; num < numberOfNumbers; num++) {
+ //                var addMeM = getRandomFromMinMax(minNumber, maxNumber);
+ //                thisAnswerM = thisAnswerM * addMeM;
+ //                if (thisQuestion === "") {
+ //                    thisQuestion = "(" + addMeM.toString();
+ //                }
+ //                else {
+ //                    thisQuestion = thisQuestion + "&times;" + addMeM.toString();
+ //                }
+ //            }
+ //            thisQuestion = thisQuestion + ")";
 
-            questionAnswerArray = [thisQuestion, thisAnswerM];
+ //            questionAnswerArray = [thisQuestion, thisAnswerM];
 
-            // division
-            for (num = 0; num < numberOfNumbers; num++) {
-                var addMeD = getRandomFromMinMax(minNumber, maxNumber);
-                thisAnswerD /= addMeD;
-                if (thisQuestion === "") {
-                    thisQuestion = "(" + addMeD.toString();
-                }
-                else {
-                    thisQuestion = thisQuestion + " / " + addMeD.toString();
-                }
-            }
-            thisQuestion = thisQuestion + ")";
+ //            // division
+ //            function division () {
+ //            for (num = 0; num < numberOfNumbers; num++) {
+ //                var addMeD = getRandomFromMinMax(minNumber, maxNumber);
+ //                thisAnswerD /= addMeD;
+ //                if (thisQuestion === "") {
+ //                    thisQuestion = "(" + addMeD.toString();
+ //                }
+ //                else {
+ //                    thisQuestion = thisQuestion + "&divide;" + addMeD.toString();
+ //                }
+ //            }
+ //            thisQuestion = thisQuestion + ")";
 
-            questionAnswerArray = [thisQuestion, thisAnswerD];
+ //            questionAnswerArray = [thisQuestion, thisAnswerD];
 
             gameObject.mathGame.fourRandomAnswersArray.push(questionAnswerArray);
             // end addition (others not implemented yet)
-        }
-    }
+  }   
+  }   
 
     function storeAndPopulateNumberVariables() {
         var minNumber = $("#minNumber").val();
@@ -167,5 +180,18 @@ $(document).ready(function() {
         } else {
             getMessageForComputerToSay("failure");
         }
+
+        // var addition = true; // TODO stub for later - maybe
+        // var subtraction = true; // TODO stub for later - maybe
+        // var multiplication = true; // TODO stub for later - maybe
+        // var division = true; // TODO stub for later - maybe
+
+        // division();
+        // multiplication();
+        // addition();
+        // substraction();
+
+ // $("#operator").on("click", ".clickable", function() {
+ //        console.log(addition);
     });
-});
+    });
