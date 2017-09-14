@@ -40,6 +40,11 @@ span {
     text-shadow: 1.25px 1.25px #1b7eeb;
 }
 
+#resultbutton {
+    background-color: rgba(125, 255, 30, .8);
+    color: black;
+}
+
 
 
 @media screen and (max-height: 450px) {
@@ -63,7 +68,7 @@ body {
 
 .gif {
     padding: 15px;
-    border
+    
 }
 
 #div0 {

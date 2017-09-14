@@ -106,7 +106,7 @@ var gameObject = {
     shapesGame: {
         correctShape: "Square",
         fourRandomShapesArray: [],
-        shapesArray: ["square", "circle", "triangle", "rectangle", "egg shaped", "diamond", "hexagon", "sphere", "rhombus", "star", "prism", "octogon", "zig zag", "bow tie"],
+        shapesArray: ["square", "circle", "triangle", "rectangle", "egg shaped", "diamond", "hexagon", "sphere", "rhombus", "star", "prism", "octogon", "zig zag", "bow tie", "pentagon", "trapezium", "cylinder", "cube", "cone", "decagon", "arrow", "dodecahedron"],
         // merge conflict fix - talk with Robert on this one - which is right    
         // shapesArray: ["Square", "Circle", "Triangle", "Rectangle", "Egg Shaped", "Diamond", "Polygon", "Sphere", "Rhombus", "Star", "Parallelogram"],
         colorArray: ["Red", "Blue", "Green", "Yellow", "Pink", "Black", "White", "Gold"]
@@ -138,6 +138,7 @@ var gameObject = {
         numberOfNumbers: 2
     }
 };
+
 
 function createMenu() {
     for (var i = 0; i < gameObject.gamesMenu.length; i++) {
@@ -193,6 +194,7 @@ function getGifAndAssignToDiv(searchTerm, div) {
         });
     });
 }
+
 
 function clearDivs() {
     gameObject.divs.forEach(function(div) {

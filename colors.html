@@ -2,6 +2,8 @@
 <html>
 
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Colors</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -28,8 +30,8 @@
     <div class="container-fluid" id="gameStart">
         <div class="row">
             <!-- dragging images -->
-            <div class="col-sm-1 col-md-1"></div>
-            <div class="col-sm-5 col-md-5" id="imageContainer">
+            <div class="col-md-1"></div>
+            <div class="col-sm-6 col-md-5" id="imageContainer imageBox">
                 <img src="assets/images/colorsGameImages/yellowSun.jpg" alt="yellowSun" draggable="true" class="images" color="yellow" id="yellowSun" ;>
                 <img src="assets/images/colorsGameImages/orangeOrange.jpg" alt="orangeOrange" draggable="true" class="images" color="orange" id="orangeOrange" ;>
                 <img src="assets/images/colorsGameImages/greenNotebook.png" alt="greenNotebook" draggable="true" class="images" color="green" id="greenNotebook" ;>
@@ -46,7 +48,7 @@
                 <img src="assets/images/colorsGameImages/yellowCat.jpg" alt="yellowCat" draggable="true" class="images" color="yellow" id="yellowCat" ;>
                 <img src="assets/images/colorsGameImages/orangeButterfly.jpg" alt="orangeButterfly" draggable="true" class="images" color="orange" id="orangeButterfly" ;>
             </div>
-            <div class="col-sm-5 col-md-5" id="imageContainer">
+            <div class="col-sm-6 col-md-5" id="imageContainer matchBox">
                 <div id="blueImages" class="matchingBox" color="blue" status="empty"></div>
                 <div id="redImages" class="matchingBox" color="red" status="empty"></div>
                 <div id="orangeImages" class="matchingBox" color="orange" status="empty"></div>
