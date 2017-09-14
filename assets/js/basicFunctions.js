@@ -49,7 +49,9 @@ var gameObject = {
                 "Sweet!",
                 "Superb!",
                 "Impressive",
-                "Most impressive"
+                "Most impressive",
+                "Optimus Prime would be proud",
+                "Awesome! Great Job!"
             ],
             failure: [
                 "Please try again",
@@ -59,7 +61,8 @@ var gameObject = {
                 "some of these are confusing",
                 "Not quite",
                 "Batman says:  Nope",
-                "ka-thunk"
+                "ka-thunk",
+                "Sad Panda :(. Try again!"
             ]
         },
         name: {
