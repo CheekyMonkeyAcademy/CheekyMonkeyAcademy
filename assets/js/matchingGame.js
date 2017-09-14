@@ -50,7 +50,7 @@ function storeAndPopulateAmountOfCards() {
 	})
 }
 
-storeAndPopulateAmountOfCards();
+// storeAndPopulateAmountOfCards();
 
 //STEP 3: Reset the board for player to play again 
 function resetTheBoard (){
@@ -63,10 +63,9 @@ function resetTheBoard (){
 
 resetTheBoard();
 
-//STEP 4: Define searchSport
-
 //STEP 5: API FOR IMAGES 
 function assignSportImageToCard(searchSport){
+	storeAndPopulateAmountOfCards();
 	var apiKey = "y482smscwdrv44u8raqcw77t";
 	var appendApiKeyHeader = function( xhr ) {
 		xhr.setRequestHeader('Api-Key', apiKey)
@@ -80,11 +79,20 @@ function assignSportImageToCard(searchSport){
 	.done(function(responseData){
 		console.log(responseData);
 		console.log(responseData.images[0].display_sizes[0].uri);
+		//THE FOLLOWING CODE, I AM NOT SURE ABOUT!!!
+		var imageResults = responseData.images[0].display_sizes[0].uri;
+			for (var i = 0; i < imageResults; i++) {
+				$("<img>").append(imageResults);
+				$("<div>").append("<img>");
+			}
+
 	})
+
 
 
 }
 
+assignSportImageToCard();
 
 
 
