@@ -4,6 +4,8 @@ var gameObject = {
     fourRandomShapesArray: [],
     //firebase logins
     userSettings: {
+        userId: "",
+        displayName: "",
         name: "Kyle",
         gifMovement: true, //TODO implement
         userSex: "M"

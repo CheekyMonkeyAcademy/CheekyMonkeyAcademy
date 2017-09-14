@@ -3,6 +3,11 @@ $(document).ready(function() {
     createMenu();
     //add firebase logic
 
+    // FOR TESTING ####################
+    // Email Login:  Test@cheekymonkeyacademy.com
+    // Password: Test1234
+    // FOR TESTING ####################
+
     var config = {
         apiKey: "AIzaSyDfepSNI19ZoWaOPv52mXSUN4s_W8O8URg",
         authDomain: "cheekymonkeyacademy-1a390.firebaseapp.com",
@@ -25,25 +30,29 @@ $(document).ready(function() {
                 $("#goToLoginPageButton").addClass("hidden");
 
                 var displayName = user.displayName;
-                // var email = user.email;
-                // var emailVerified = user.emailVerified;
+                var email = user.email;
+                var emailVerified = user.emailVerified;
                 // var photoURL = user.photoURL;
-                var uid = user.uid;
+                var userId = user.uid;
                 // var phoneNumber = user.phoneNumber;
-                var providerData = user.providerData;
+                // var providerData = user.providerData;
                 user.getIdToken().then(function(accessToken) {
                     document.getElementById('sign-in-status').textContent = 'Signed in';
                     document.getElementById('sign-in').textContent = 'Sign out';
                     document.getElementById('account-details').textContent = JSON.stringify({
                         displayName: displayName,
-                        // email: email,
-                        // emailVerified: emailVerified,
-                        // phoneNumber: phoneNumber,
-                        // photoURL: photoURL,
-                        uid: uid,
-                        accessToken: accessToken,
-                        providerData: providerData
+                        userId: userId,
+                        // uid:"LBJ8sSuSPAPnYO4D4Z0XNwApcEh2"
                     }, null, '  ');
+                console.log(user);
+                console.log(user.uid);
+                // gameObject.UserSettings.userId = user.uid
+                gameObject.UserSettings.displayName = user.displayName
+                gameObject.UserSettings.email = user.email
+                gameObject.UserSettings.emailVerified = user.emailVerified
+
+                console.log("Here's our userSettings Object")
+                console.log(gameObject.userSettings);
                 });
             } else {
                 // User is signed out.
@@ -68,6 +77,16 @@ $(document).ready(function() {
             window.location.assign("https://kylekowalski.github.io/CheekyMonkeyAcademy/");
         }).catch(function(error) {
             console.log(error);
+        });
+    }
+
+    function createUserInFirebase() {
+        firebase.database().ref("users/" + userId)
+    }
+
+    function updateUserInFirebase(userId, fieldToUpdate, valueUpdatedTo) {
+        firebase.database().ref("users/" + userId).update({
+            fieldToUpdate: valueUpdatedTo
         });
     }
 
