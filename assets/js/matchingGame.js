@@ -5,17 +5,23 @@ $(document).ready(function(){
  	matchGame: {
 	 	numberOfSports: 2,
 	 	numberOfCards: 4,
-		sportsArray: ["baseball", "soccer", "american football", "tennis", 
+		sportsArray: ["baseball", "soccer", "american_football", "tennis", 
 		"golf", "volleyball", "yoga", "gymnastics", "boxing", "hockey", "hiking", "bowling", 
-		"softball", "track", "surfing", "martial arts", "figure skating", "billiards", "swimming"],
+		"softball", "track", "surfing", "billiards", "swimming"],
 	}
 }
 
-// numberOfCardDivs = [];
+//STEP 1: Randomly grab sports from the array
+function chooseSportAtRandom(){
+	var randomSports = gameObject.matchGame.sportsArray[getRandomFrom(gameObject.matchGame.sportsArray.length)];
+	// console.log(displayRandomSports);
+	return randomSports;
+}
 
 console.log("#ofSports: " + gameObject.matchGame.numberOfSports); //THIS WORKS!!
 console.log("#ofCards: " + gameObject.matchGame.numberOfCards); //THIS WORKS!!
 
+//STEP 2: Create cards based of the array
 function storeAndPopulateAmountOfCards() {
 
 	$("#makeCards").on("click", function(){
@@ -24,18 +30,23 @@ function storeAndPopulateAmountOfCards() {
 	// var cardDisplay = numberOfSports * cardsPerSport;
 
 	//THIS WORKS!!!
-	for (var i = 0; i <  (numberOfSports * cardsPerSport); i++) {
-		var newCardDiv = $("<div>");
-		newCardDiv.addClass("newCardStyle");
-		$("#cardContainer").append(newCardDiv);
-		console.log(newCardDiv);
+	for (var i = 0; i <  numberOfSports; i++) {
+		var chosenSport = chooseSportAtRandom();
+
+		for (var x = 0; x < cardsPerSport; x++) {			
+			var newCardDiv = $("<div>");
+			newCardDiv.addClass(chosenSport);
+			newCardDiv.addClass("newCardStyle");
+			$("#cardContainer").append(newCardDiv);
+			console.log(newCardDiv);
+			}
 		}
 	})
 }
 
 storeAndPopulateAmountOfCards();
 
-//Reset the board for player to play again 
+//STEP 3: Reset the board for player to play again 
 function resetTheBoard (){
 	$("#resetBoard").on("click", function(){
 		$("#cardContainer").html("");
@@ -46,19 +57,19 @@ function resetTheBoard (){
 
 resetTheBoard();
 
-//API FOR IMAGES CODE!!!!!
+//STEP 4: API FOR IMAGES CODE!!!!!
 function assignSportImageToCard(searchSport){
-var apiKey = "y482smscwdrv44u8raqcw77t";
-var appendApiKeyHeader = function( xhr ) {
-  xhr.setRequestHeader('Api-Key', apiKey)
-};
+	var apiKey = "y482smscwdrv44u8raqcw77t";
+	var appendApiKeyHeader = function( xhr ) {
+		xhr.setRequestHeader('Api-Key', apiKey)
+	};
 
 
-$.ajax({
-	type: "GET",
-	beforeSend:appendApiKeyHeader,
-	url: "https://api.gettyimages.com/v3/search/images?fields=id,title,thumb,referral_destinations&sort_order=best&phrase=" + searchSport
-})
+	$.ajax({
+		type: "GET",
+		beforeSend:appendApiKeyHeader,
+		url: "https://api.gettyimages.com/v3/search/images?fields=id,title,thumb,referral_destinations&sort_order=best&phrase=" + searchSport
+	})
 	.done(function(responseData){
 		console.log(responseData);
 		console.log(responseData.images[0].display_sizes[0].uri);
@@ -66,17 +77,10 @@ $.ajax({
 } 
 
 
-assignSportImageToCard("baseball"); 
+
 
 
 
 }) //End of the document.ready function 
 
 
-//Before you make cards, we will get our sports from the array
-
-//when we make the cards, we need to make number of cards
-	//We need a class before we make cards
-	//assign class that will allow us to assign an image
-	//number of cards that have a class of sport #
-	//Can't create divs first
