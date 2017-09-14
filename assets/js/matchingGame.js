@@ -35,10 +35,16 @@ function storeAndPopulateAmountOfCards() {
 
 		for (var x = 0; x < cardsPerSport; x++) {			
 			var newCardDiv = $("<div>");
+			// Adding an image tag to append gettyImage to
+			var createImgTag = $("<img>");
 			newCardDiv.addClass(chosenSport);
 			newCardDiv.addClass("newCardStyle");
+			newCardDiv.append(createImgTag);
 			$("#cardContainer").append(newCardDiv);
+			var searchSport = chosenSport;
 			console.log(newCardDiv);
+			// console.log(createImgTag);
+			console.log("This is searchSport " + searchSport);
 			}
 		}
 	})
@@ -57,13 +63,14 @@ function resetTheBoard (){
 
 resetTheBoard();
 
-//STEP 4: API FOR IMAGES CODE!!!!!
+//STEP 4: Define searchSport
+
+//STEP 5: API FOR IMAGES 
 function assignSportImageToCard(searchSport){
 	var apiKey = "y482smscwdrv44u8raqcw77t";
 	var appendApiKeyHeader = function( xhr ) {
 		xhr.setRequestHeader('Api-Key', apiKey)
 	};
-
 
 	$.ajax({
 		type: "GET",
@@ -74,7 +81,12 @@ function assignSportImageToCard(searchSport){
 		console.log(responseData);
 		console.log(responseData.images[0].display_sizes[0].uri);
 	})
-} 
+
+
+}
+
+
+
 
 
 
