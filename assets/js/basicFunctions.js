@@ -136,7 +136,6 @@ function createMenu() {
         newMenuItem.attr("href", gameObject.gamesMenu[i][0]);
         newMenuItem.text(gameObject.gamesMenu[i][1]);
         $("#mySidenav").append(newMenuItem);
-        console.log(gameObject.gamesMenu[i][0]);
     }
 }
 

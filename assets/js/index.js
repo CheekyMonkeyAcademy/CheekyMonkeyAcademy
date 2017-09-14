@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    computerSayThis("Welcome to Cheeky Monkey Academy, please select a game to play.");
+    // computerSayThis("Welcome to Cheeky Monkey Academy, please select a game to play.");
     createMenu();
     //add firebase logic
 
@@ -17,6 +17,10 @@ $(document).ready(function() {
         messagingSenderId: "52825639428"
     };
     firebase.initializeApp(config);
+
+    var database = firebase.database();
+    validateUser();
+    // console.log(database)
 
     window.addEventListener('load', function() {
         initApp()
@@ -41,18 +45,13 @@ $(document).ready(function() {
                     document.getElementById('sign-in').textContent = 'Sign out';
                     document.getElementById('account-details').textContent = JSON.stringify({
                         displayName: displayName,
-                        userId: userId,
-                        // uid:"LBJ8sSuSPAPnYO4D4Z0XNwApcEh2"
+                        userId: userId
+                        // uid:"LBJ8sSuSPAPnYO4D4Z0XNwApcEh2"   
                     }, null, '  ');
-                console.log(user);
-                console.log(user.uid);
-                // gameObject.UserSettings.userId = user.uid
-                gameObject.UserSettings.displayName = user.displayName
-                gameObject.UserSettings.email = user.email
-                gameObject.UserSettings.emailVerified = user.emailVerified
-
-                console.log("Here's our userSettings Object")
-                console.log(gameObject.userSettings);
+                    gameObject.userSettings.userId = user.uid;
+                    gameObject.userSettings.displayName = user.displayName;
+                    gameObject.userSettings.email = user.email;
+                    gameObject.userSettings.emailVerified = user.emailVerified;
                 });
             } else {
                 // User is signed out.
@@ -80,12 +79,35 @@ $(document).ready(function() {
         });
     }
 
-    function createUserInFirebase() {
-        firebase.database().ref("users/" + userId)
+    function validateUser() {
+        console.log("called validate user");
+        database.ref().on("value", function(snapshot) {
+            if (snapshot.child("users/" + gameObject.userSettings.userId).exists()) {
+                console.log("this user exists");
+            }
+            else {
+                console.log("user doesn't exist, let's create them");
+                console.log(gameObject.userSettings)
+                firebase.database().ref("users/" + gameObject.userSettings.userId).set({
+                    displayName: gameObject.userSettings.displayName,
+                    email: gameObject.userSettings.email,
+                    emailVerified: gameObject.userSettings.emailVerified
+                })
+            }
+
+        })
+
+        // if they exist, check current displayName, email, and verified email
     }
 
-    function updateUserInFirebase(userId, fieldToUpdate, valueUpdatedTo) {
-        firebase.database().ref("users/" + userId).update({
+    function createUserInFirebase() {
+        updateUserInFirebase("displayName", gameObject.userSettings.displayName);
+        updateUserInFirebase("email", gameObject.userSettings.email);
+        updateUserInFirebase("emailVerified", gameObject.userSettings.emailVerified);
+    }
+
+    function updateUserInFirebase(fieldToUpdate, valueUpdatedTo) {
+        firebase.database().ref("users/" + gameObject.userSettings.userId).update({
             fieldToUpdate: valueUpdatedTo
         });
     }
