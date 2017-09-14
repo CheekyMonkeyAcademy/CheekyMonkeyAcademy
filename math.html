@@ -1,56 +1,72 @@
-<!DOCTYPE html>
-<html>
+    <!DOCTYPE html>
+    <html>
 
-<head>
-    <title>Cheeky Monkey Academy - Math Game</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="assets\js\basicFunctions.js"></script>
-    <script type="text/javascript" src="assets\js\math.js"></script>
-    <!-- <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script> -->
-    <!-- <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script> -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="assets\css\globalCSS.css">
-    <link rel="stylesheet" type="text/css" href="assets\css\math.css">
-</head>
+    <head>
+        <title>Cheeky Monkey Academy - Math Game</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="assets\js\basicFunctions.js"></script>
+        <script type="text/javascript" src="assets\js\math.js"></script>
+        <!-- <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script> -->
+        <!-- <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script> -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="assets\css\globalCSS.css">
+        <link rel="stylesheet" type="text/css" href="assets\css\math.css">
+    </head>
 
-<body>
-    <div id="mySidenav" class="sidenav">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    </div>
-    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
-    <div>
-        <row><h1 id="title" class="text-center">Math Game</h1></row>
-        <container>
-            <row>
-                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                    <h3 id="questionGoesHere" class="text-center col-xs-6 col-sm-6 col-md-6 col-lg-6"></h3>
+    <body>
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        </div>
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
+        <div>
+            <row><h1 id="title" class="text-center">Math Game</h1></row>
+            <container>
+                <row>
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                        <h3 id="questionGoesHere" class="text-center col-xs-6 col-sm-6 col-md-6 col-lg-6"></h3>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 float-left">
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">Minimum Number</div>
+                        <input type="number" id="minNumber" autocomplete="off" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">Maximum Number</div>
+                        <input type="number" id="maxNumber" autocomplete="off" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">Number of Numbers</div>
+                        <input type="number" id="numberOfNumbers" min="2" max="15" autocomplete="off" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      
+                
+                    <form>
+                        <div class="radio">
+                                  <label><input type="radio" id="Division" name="optradio">Division</label>
+                                </div>
+                        <div class="radio">
+                                  <label><input type="radio" id="Multiplication" name="optradio">Multiplication</label>
+                                </div>
+                        <div class="radio disabled">
+                                  <label><input type="radio" id="Substraction" name="optradio">Substraction</label>
+                                </div>
+                              </form>
                 </div>
-                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 float-left">
-                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">Minimum Number</div>
-                    <input type="number" id="minNumber" autocomplete="off" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">Maximum Number</div>
-                    <input type="number" id="maxNumber" autocomplete="off" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">Number of Numbers</div>
-                    <input type="number" id="numberOfNumbers" min="2" max="15" autocomplete="off" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                </div>
+                               </div>
+        </div>
+                </row>
+            </container>
+
+            <hr class="clear-both">
+                
+        </div>
+        
+        <container id="clicky-container" class="text-center">
+            <row class="height-50">
+                <div id="div0" class="relative background-gray col-sm-6 col-md-6">Div 0</div>
+                <div id="div1" class="relative col-sm-6 col-md-6">Div 1</div>
+            </row>
+            <row class="height-50">
+                <div id="div2" class="relative col-sm-6 col-md-6">Div 2</div>
+                <div id="div3" class="relative background-gray col-sm-6 col-md-6">Div 3</div>
             </row>
         </container>
-        <hr class="clear-both">
-            
-    </div>
-    
-    <container id="clicky-container" class="text-center">
-        <row class="height-50">
-            <div id="div0" class="relative background-gray col-sm-6 col-md-6">Div 0</div>
-            <div id="div1" class="relative col-sm-6 col-md-6">Div 1</div>
-        </row>
-        <row class="height-50">
-            <div id="div2" class="relative col-sm-6 col-md-6">Div 2</div>
-            <div id="div3" class="relative background-gray col-sm-6 col-md-6">Div 3</div>
-        </row>
-    </container>
-    <script type="text/javascript" src="assets/js/navBar.js"></script>
-</body>
+        <script type="text/javascript" src="assets/js/navBar.js"></script>
+    </body>
 
-</html>
+    </html>

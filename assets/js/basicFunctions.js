@@ -207,7 +207,7 @@ function getRandomFrom(thisNumber) {
 }
 
 function getRandomFromMinMax(minNumber, maxNumber) {
-    maxNumber++ // this allows us to hit the max number
+    maxNumber++; // this allows us to hit the max number
     var returnValue = Math.floor(Math.random() * (maxNumber - minNumber)) + minNumber;
     return returnValue;
 }
