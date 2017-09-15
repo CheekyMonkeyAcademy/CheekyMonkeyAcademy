@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    computerSayThis("Welcome " + gameObject.userSettings.name + " let's play the Math Game!")
+    computerSayThis("Welcome " + gameObject.userSettings.name + " let's play the Math Game!");
     createMenu();
 
     assignAnswerAndCallForGifToDiv();
@@ -8,10 +8,9 @@ $(document).ready(function() {
     function assignAnswerAndCallForGifToDiv() {
         clearDivs();
         storeAndPopulateNumberVariables();
-         getFourRandomAnswersIntoArray("division");
-        getFourRandomAnswersIntoArray("substraction");
-        getFourRandomAnswersIntoArray("multiplication");
-        getFourRandomAnswersIntoArray("addition");
+        console.log($('input[type=radio]:checked').val());
+         getFourRandomAnswersIntoArray($('input[type=radio]:checked').val());
+      
 
         for (i = 0; i < gameObject.mathGame.fourRandomAnswersArray.length; i++) {
             var thisDiv = "div" + (i);
@@ -69,7 +68,7 @@ $(document).ready(function() {
                     thisQuestion = thisQuestion + " * " + addMe.toString();
                     thisAnswer = thisAnswer * addMe;
                 }
-                  else if (mathType === "substraction") {
+                  else if (mathType === "subtraction") {
                     thisQuestion = thisQuestion + " - " + addMe.toString();
                     thisAnswer -= addMe;
                 }
@@ -91,13 +90,10 @@ $(document).ready(function() {
         var maxNumber = $("#maxNumber").val();
         var numberOfNumbers = $("#numberOfNumbers").val();
 
-        console.log(gameObject.mathGame);
         if (minNumber == "") {
-            console.log("min empty");
             $("#minNumber").val(gameObject.mathGame.minNumber);
         }
         else {
-            console.log("min else");
             gameObject.mathGame.minNumber = parseInt($("#minNumber").val());
         }
 
@@ -118,7 +114,6 @@ $(document).ready(function() {
     }
 
     $("#clicky-container").on("click", ".clickable", function() {
-        console.log(gameObject.mathGame);
         if ($(this).attr("assigned_thing") === (gameObject.mathGame.correctAnswer)) {
             getMessageForComputerToSay("success");
             computerSayThis("You clicked the " + gameObject.mathGame.correctAnswer);
@@ -126,23 +121,8 @@ $(document).ready(function() {
         } else {
             getMessageForComputerToSay("failure");
         }
-$(".radio").click(function() {
 
-
-    if (mathType === "addition") {
-     getFourRandomAnswersIntoArray("addition");
-    } else if (mathType === "multiplication") {
-      getFourRandomAnswersIntoArray("multiplication");
-    } else if (mathType === "substraction") {
-        getFourRandomAnswersIntoArray("substraction");
-    } else if (mathType === "division") {
-    getFourRandomAnswersIntoArray("division");
-}
-      
  
-   });
-  
-
-    });
-
        });   
+
+      });  
