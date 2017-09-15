@@ -51,7 +51,14 @@ var gameObject = {
                 "Impressive",
                 "Most impressive",
                 "Optimus Prime would be proud",
-                "Awesome! Great Job!"
+                "Awesome!",
+                "Great Job!",
+                "Terrific",
+                "You get a gold star",
+                "You're my favorite wookie",
+                "Well done!",
+                "Boom chicka boom!",
+                "Right answer!"
             ],
             failure: [
                 "Please try again",
@@ -62,7 +69,16 @@ var gameObject = {
                 "Not quite",
                 "Batman says:  Nope",
                 "ka-thunk",
-                "Sad Panda :(. Try again!"
+                "Sad Panda :(. Try again!",
+                "I ate your cookie, sorry",
+                "Nice try, buddy",
+                "Talk to the hand",
+                "You're drifting to the dark side",
+                "No soup for you!",
+                "Bummer dude!",
+                "Don't have a cow man",
+                "If at first you don't succeed, try, try again",
+                "Captain America says, Almost there soldier! Try again."
             ]
         },
         name: {
