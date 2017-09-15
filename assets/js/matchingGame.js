@@ -92,7 +92,7 @@ function assignSportImageToCard(searchSport){
 		console.log(responseData);
 		console.log(responseData.images[0].display_sizes[0].uri);
 		return imageToBeMatched;
-		// console.log(imageToBeMatched + "this is image to be matched");
+		
 		
 		})
 }
