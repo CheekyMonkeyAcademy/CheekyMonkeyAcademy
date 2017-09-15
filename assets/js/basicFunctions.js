@@ -51,9 +51,15 @@ var gameObject = {
                 "Superb!",
                 "Impressive",
                 "Most impressive",
+                "Optimus Prime would be proud",
+                "Awesome!",
+                "Great Job!",
                 "Terrific",
                 "You get a gold star",
-                "You're my favorite wookie"
+                "You're my favorite wookie",
+                "Well done!",
+                "Boom chicka boom!",
+                "Right answer!"
             ],
             failure: [
                 "Please try again",
@@ -64,11 +70,16 @@ var gameObject = {
                 "Not quite",
                 "Batman says:  Nope",
                 "ka-thunk",
+                "Sad Panda :(. Try again!",
                 "I ate your cookie, sorry",
                 "Nice try, buddy",
                 "Talk to the hand",
                 "You're drifting to the dark side",
-                "No soup for you!"
+                "No soup for you!",
+                "Bummer dude!",
+                "Don't have a cow man",
+                "If at first you don't succeed, try, try again",
+                "Captain America says, Almost there soldier! Try again."
             ]
         },
         name: {
@@ -116,8 +127,6 @@ var gameObject = {
         correctShape: "Square",
         fourRandomShapesArray: [],
         shapesArray: ["square", "circle", "triangle", "rectangle", "egg shaped", "diamond", "hexagon", "sphere", "rhombus", "star", "prism", "octogon", "zig zag", "bow tie", "pentagon", "trapezium", "cylinder", "cube", "cone", "decagon", "arrow", "dodecahedron"],
-        // merge conflict fix - talk with Robert on this one - which is right    
-        // shapesArray: ["Square", "Circle", "Triangle", "Rectangle", "Egg Shaped", "Diamond", "Polygon", "Sphere", "Rhombus", "Star", "Parallelogram"],
         colorArray: ["Red", "Blue", "Green", "Yellow", "Pink", "Black", "White", "Gold"]
     },
     placesGame: {
