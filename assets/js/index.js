@@ -47,7 +47,7 @@ $(document).ready(function() {
                     gameObject.userSettings.displayName = user.displayName;
                     gameObject.userSettings.email = user.email;
                     gameObject.userSettings.emailVerified = user.emailVerified;
-                });
+                })
             } else {
                 // User is signed out.
                 // document.getElementById('sign-in-status').textContent = 'Signed out';
