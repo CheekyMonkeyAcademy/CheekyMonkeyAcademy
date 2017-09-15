@@ -20,10 +20,6 @@ $(document).ready(function() {
     var database = firebase.database();
     validateUser();
     
-    console.log(gameObject.userSettings);
-    computerSayThis("Welcome to Cheeky Monkey Academy " + gameObject.userSettings.name + " , please select a game to play.");
-    
-
     window.addEventListener('load', function() {
         initApp()
     });
@@ -58,6 +54,8 @@ $(document).ready(function() {
             console.log(error);
         });
     };
+
+    computerSayThis("Welcome to Cheeky Monkey Academy " + gameObject.userSettings.name + " , please select a game to play.");
 
     $("#signOutButton").click(function(){
         signOut();
