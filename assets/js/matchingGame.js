@@ -10,23 +10,36 @@ $(document).ready(function(){
 		"softball", "track", "surfing", "billiards", "swimming"],
 	}
 }
+var searchSport
 
-//STEP 1: Randomly grab sports from the array
-function chooseSportAtRandom(){
+// //STEP 1: Randomly grab sports from the array
+// function chooseSportAtRandom(){
+// 	var randomSports = gameObject.matchGame.sportsArray[getRandomFrom(gameObject.matchGame.sportsArray.length)];
+// 	// console.log(displayRandomSports);
+// 	return randomSports;
+// }
+
+// chooseSportAtRandom();
+
+// console.log("#ofSports: " + gameObject.matchGame.numberOfSports); //THIS WORKS!!
+// console.log("#ofCards: " + gameObject.matchGame.numberOfCards); //THIS WORKS!!
+
+//STEP 2: Create cards based of the array
+	$("#makeCards").on("click", function(){
+
+	//STEP 1: Randomly grab sports from the array
+	function chooseSportAtRandom(){
 	var randomSports = gameObject.matchGame.sportsArray[getRandomFrom(gameObject.matchGame.sportsArray.length)];
 	// console.log(displayRandomSports);
 	return randomSports;
-}
+	}
 
-chooseSportAtRandom();
+	console.log("#ofSports: " + gameObject.matchGame.numberOfSports); //THIS WORKS!!
+	console.log("#ofCards: " + gameObject.matchGame.numberOfCards); //THIS WORKS!!
 
-console.log("#ofSports: " + gameObject.matchGame.numberOfSports); //THIS WORKS!!
-console.log("#ofCards: " + gameObject.matchGame.numberOfCards); //THIS WORKS!!
+	chooseSportAtRandom();
 
-//STEP 2: Create cards based of the array
-function storeAndPopulateAmountOfCards() {
-
-	$("#makeCards").on("click", function(){
+	function storeAndPopulateAmountOfCards() {	
 	var numberOfSports = $("#numberOfSportsChosen").val(); //THIS WORKS!!
 	var cardsPerSport = $("#cardsPerSportChosen").val(); //THIS WORKS!!
 	// var cardDisplay = numberOfSports * cardsPerSport;
@@ -34,13 +47,12 @@ function storeAndPopulateAmountOfCards() {
 	//THIS WORKS!!!
 	for (var i = 0; i <  numberOfSports; i++) {
 		var chosenSport = chooseSportAtRandom();
-		// assignSportImageToCard();
+		var imgUrl = assignSportImageToCard(chosenSport).done(function(result){
+			console.log('result' + chosenSport, result);
+		});
+		console.log("URL IS " + imgUrl);
 
-
-
-
-
-
+			
 		for (var x = 0; x < cardsPerSport; x++) {			
 			var newCardDiv = $("<div>");
 			// Adding an image tag to append gettyImage to
@@ -53,16 +65,46 @@ function storeAndPopulateAmountOfCards() {
 			// newCardDiv.attr("status", "flipping");
 			// newCardDiv.attr("status", "hidden");
 			$("#cardContainer").append(newCardDiv);
-			var searchSport = chosenSport;
+			searchSport = chosenSport;
 			console.log(newCardDiv);
 			// console.log(createImgTag);
 			console.log("This is searchSport " + searchSport);
+
 			}
 		}
-	})
-}
+	}
+
 
 storeAndPopulateAmountOfCards();
+
+//STEP 5: API FOR IMAGES 
+function assignSportImageToCard(mySearchSport){
+	var returnVariable = "";
+	var apiKey = "y482smscwdrv44u8raqcw77t";
+	var appendApiKeyHeader = function( xhr ) {
+		xhr.setRequestHeader('Api-Key', apiKey);
+	}
+
+	return $.ajax({
+		type: "GET",
+		beforeSend:appendApiKeyHeader,
+		url: "https://api.gettyimages.com/v3/search/images?fields=id,title,thumb,referral_destinations&sort_order=best&phrase=" + mySearchSport
+	})
+	.done(function(responseData){
+		// storeAndPopulateAmountOfCards();
+		//S1:Get the image url and store in var
+		var imageToBeMatched = responseData.images[0].display_sizes[0].uri
+		
+		// console.log(responseData.images[0].display_sizes[0].uri);
+		
+
+		console.log("This is to be matched " + imageToBeMatched);
+
+		return imageToBeMatched;
+	})
+	
+}
+})
 
 //STEP 3: Reset the board for player to play again 
 function resetTheBoard (){
@@ -74,30 +116,6 @@ function resetTheBoard (){
 }
 
 resetTheBoard();
-
-//STEP 5: API FOR IMAGES 
-function assignSportImageToCard(searchSport){
-	var apiKey = "y482smscwdrv44u8raqcw77t";
-	var appendApiKeyHeader = function( xhr ) {
-		xhr.setRequestHeader('Api-Key', apiKey);
-	}
-
-	$.ajax({
-		type: "GET",
-		beforeSend:appendApiKeyHeader,
-		url: "https://api.gettyimages.com/v3/search/images?fields=id,title,thumb,referral_destinations&sort_order=best&phrase=" + searchSport
-	})
-	.done(function(responseData){
-		var imageToBeMatched = responseData.images[0].display_sizes[0].uri
-		console.log(responseData);
-		console.log(responseData.images[0].display_sizes[0].uri);
-		return imageToBeMatched;
-		
-		
-		})
-}
-
-
 
 
 
