@@ -12,7 +12,8 @@ var gameObject = {
 	selectedSportsArray: [],
 	}
 }
-var searchSport
+var searchSport;
+var chosenSport;
 
 // //STEP 1: Randomly grab sports from the array
 // function chooseSportAtRandom(){
@@ -138,12 +139,15 @@ $("#makeCards").on("click", function(){
 //STEP 8: Put random sports into the selectedSportsArray
 	function captureSportsandPushIntoSelectedSportsArray() {
 		gameObject.matchGame.selectedSportsArray = [];
-		for (var h = 0; h < Things.length; h++) {
-			Things[i]
+		for (var h = 0; h < gameObject.matchGame[0]; h++) {
+				gameObject.matchGame.selectedSportsArray.push(gameObject.matchGame.sportsArray[chooseSportAtRandom].length);
+				console.log(selectedSportsArray + " Selected Array");
 		}
-
-
+		// console.log(selectedSportsArray + " Selected Array");
 	} //End of captureSportsandPushIntoSelectedSportsArray FXN
+
+	captureSportsandPushIntoSelectedSportsArray();
+
 	
 
 
