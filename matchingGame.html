@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Matching Game</title>
+	<!--JQuery-->
+	 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<!--Bootstrap-->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<!--Matching Game CSS-->
+	<link rel="stylesheet" type="text/css" href="assets\css\matchingGame.css">
+	<!--Matching Game JS file-->
+	<script type="text/javascript" src="assets\js\basicFunctions.js"></script>
+	<script type="text/javascript" src="assets\js\matchingGame.js"></script>
+</head>
+<body>
+
+<div class="container">
+	<div class="row"> <!--Row for the inputs-->
+	<!-- 	<div class="col-md-4">Minimum Amount of Cards</div>
+			<input type="number" id="minimumAmountOfCards" min="4" max="26"> -->
+		<div class="col-md-4">Number of Sports
+			<input type="number" id="numberOfSportsChosen" min="2" max="15">
+		</div>
+		<div class="col-md-4">Cards per Sport
+			<input type="number" id="cardsPerSportChosen" min="2" max="5">
+		</div>
+		<button class="btn btn-primary" id="makeCards" type="submit">Make Cards</button>
+		<button class="btn btn-primary"  id="resetBoard" value="Reset" type="reset">Reset</button>
+	</div>
+
+	<div class="row" id="cardContainer"></div>
+
+
+
+
+
+
+
+
+
+
+</div> <!--End of the container-->
+</body>
+</html>

@@ -34,7 +34,7 @@ function storeAndPopulateAmountOfCards() {
 	//THIS WORKS!!!
 	for (var i = 0; i <  numberOfSports; i++) {
 		var chosenSport = chooseSportAtRandom();
-		assignSportImageToCard();
+		// assignSportImageToCard();
 
 
 
@@ -49,9 +49,9 @@ function storeAndPopulateAmountOfCards() {
 			newCardDiv.addClass("newCardStyle");
 			newCardDiv.append(createImgTag);
 			//Add attributes to the div for image hidden, shown and flipping
-			newCardDiv.attr("status", "show");
-			newCardDiv.attr("status", "flipping");
-			newCardDiv.attr("status", "hidden");
+			// newCardDiv.attr("status", "show");
+			// newCardDiv.attr("status", "flipping");
+			// newCardDiv.attr("status", "hidden");
 			$("#cardContainer").append(newCardDiv);
 			var searchSport = chosenSport;
 			console.log(newCardDiv);
