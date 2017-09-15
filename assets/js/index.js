@@ -47,8 +47,7 @@ $(document).ready(function() {
                     document.getElementById('sign-in').textContent = 'Sign out';
                     document.getElementById('account-details').textContent = JSON.stringify({
                         displayName: displayName,
-                        userId: userId
-                        // uid:"LBJ8sSuSPAPnYO4D4Z0XNwApcEh2"   
+                        userId: userId  
                     }, null, '  ');
                     gameObject.userSettings.userId = user.uid;
                     gameObject.userSettings.displayName = user.displayName;
@@ -57,11 +56,11 @@ $(document).ready(function() {
                 });
             } else {
                 // User is signed out.
-                document.getElementById('sign-in-status').textContent = 'Signed out';
-                document.getElementById('sign-in').textContent = 'Sign in';
+                // document.getElementById('sign-in-status').textContent = 'Signed out';
+                // document.getElementById('sign-in').textContent = 'Sign in';
                 $("#signOutButton").addClass("hidden");
                 $("#goToLoginPageButton").removeClass("hidden");
-                document.getElementById('account-details').textContent = 'null';
+                // document.getElementById('account-details').textContent = 'null';
             }
         }, function(error) {
             console.log(error);

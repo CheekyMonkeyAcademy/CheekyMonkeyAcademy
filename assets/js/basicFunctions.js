@@ -46,7 +46,10 @@ var gameObject = {
                 "Sweet!",
                 "Superb!",
                 "Impressive",
-                "Most impressive"
+                "Most impressive",
+                "Terrific",
+                "You get a gold star",
+                "You're my favorite wookie"
             ],
             failure: [
                 "Please try again",
@@ -56,7 +59,12 @@ var gameObject = {
                 "some of these are confusing",
                 "Not quite",
                 "Batman says:  Nope",
-                "ka-thunk"
+                "ka-thunk",
+                "I ate your cookie, sorry",
+                "Nice try, buddy",
+                "Talk to the hand",
+                "You're drifting to the dark side",
+                "No soup for you!"
             ]
         },
         name: {
