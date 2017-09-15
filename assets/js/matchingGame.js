@@ -18,6 +18,8 @@ function chooseSportAtRandom(){
 	return randomSports;
 }
 
+chooseSportAtRandom();
+
 console.log("#ofSports: " + gameObject.matchGame.numberOfSports); //THIS WORKS!!
 console.log("#ofCards: " + gameObject.matchGame.numberOfCards); //THIS WORKS!!
 
@@ -79,10 +81,13 @@ function assignSportImageToCard(searchSport){
 		var imageToBeMatched = responseData.images[0].display_sizes[0].uri
 		console.log(responseData);
 		console.log(responseData.images[0].display_sizes[0].uri);
+		return imageToBeMatched;
+		console.log(imageToBeMatched + "this is image to be matched");
 		
-		}
-	}
+		})
 }
+
+assignSportImageToCard();
 
 
 
