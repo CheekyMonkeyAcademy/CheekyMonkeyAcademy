@@ -1,3 +1,4 @@
+
 #title {
     text-align: center;
     font-size: 50px;
@@ -91,3 +92,54 @@ img {
 #boxRow3 {
     margin-left: 100px;
 }
+
+@media only screen and (max-width: 768px) {
+    #title {
+        font-size: 25px;
+    }
+
+    .container-fluid {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    #imageContainer {
+        height: 100%;
+        max-height: 500px;
+        width: 40%;
+        /*border: 0;*/
+    }
+
+    #matchBox {
+        max-height: 500px;
+        height: 100%;
+        width: 40%;
+    }
+
+    img {
+        width: 115px;
+        margin: 5px;
+        height: 60px;
+        position: relative;
+        display: inline-block;
+        float: left;
+    }
+
+   
+    .matchingBox {
+        width: 115px;
+        height: 60px;
+    }
+
+    #boxRow1 {
+        margin-left: 50px;
+    }
+
+    #boxRow2 {
+        margin-left: 50px;
+    }
+
+    #boxRow3 {
+        margin-left: 50px;
+    }
+};

@@ -20,7 +20,7 @@ $(document).ready(function() {
 
         gameObject.placesGame.correctPlace = gameObject.placesGame.fourRandomPlacesArray[getRandomFrom(4)];
 
-getWikipediaEntry(gameObject.placesGame.correctPlace);
+        getWikipediaEntry(gameObject.placesGame.correctPlace);
 
         computerSayThis("Please click on the image of " + gameObject.placesGame.correctPlace);
     }
@@ -33,7 +33,7 @@ getWikipediaEntry(gameObject.placesGame.correctPlace);
         console.log(gameObject.placesGame.fourRandomPlacesArray);
     }
 
-    
+
     $("#clicky-container").on("click", ".gif", function() {
         if ($(this).attr("assigned_thing") === ("place " + gameObject.placesGame.correctPlace)) {
             computerSayThis("That place looks nice! That's " + gameObject.placesGame.correctPlace);

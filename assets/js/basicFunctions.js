@@ -1,11 +1,12 @@
 var gameObject = {
 
     divs: ["div0", "div1", "div2", "div3"],
-       //firebase logins
     userSettings: {
-        name: "Kyle",
+        userId: "",
+        displayName: "",
+        name: "",
         gifMovement: true, //TODO implement
-        userSex: "M",
+        userSex: "",
         mathGame: {
             minNumber: "",
             maxNumber: "",
@@ -125,9 +126,7 @@ var gameObject = {
     shapesGame: {
         correctShape: "Square",
         fourRandomShapesArray: [],
-        shapesArray: ["square", "circle", "triangle", "rectangle", "egg shaped", "diamond", "hexagon", "sphere", "rhombus", "star", "prism", "octogon", "zig zag", "bow tie"],
-        // merge conflict fix - talk with Robert on this one - which is right    
-        // shapesArray: ["Square", "Circle", "Triangle", "Rectangle", "Egg Shaped", "Diamond", "Polygon", "Sphere", "Rhombus", "Star", "Parallelogram"],
+        shapesArray: ["square", "circle", "triangle", "rectangle", "egg shaped", "diamond", "hexagon", "sphere", "rhombus", "star", "prism", "octogon", "zig zag", "bow tie", "pentagon", "trapezium", "cylinder", "cube", "cone", "decagon", "arrow", "dodecahedron"],
         colorArray: ["Red", "Blue", "Green", "Yellow", "Pink", "Black", "White", "Gold"]
     },
     placesGame: {
@@ -158,13 +157,13 @@ var gameObject = {
     }
 };
 
+
 function createMenu() {
     for (var i = 0; i < gameObject.gamesMenu.length; i++) {
         var newMenuItem = $("<a>");
         newMenuItem.attr("href", gameObject.gamesMenu[i][0]);
         newMenuItem.text(gameObject.gamesMenu[i][1]);
         $("#mySidenav").append(newMenuItem);
-        console.log(gameObject.gamesMenu[i][0]);
     }
 }
 
@@ -212,6 +211,7 @@ function getGifAndAssignToDiv(searchTerm, div) {
         });
     });
 }
+
 
 function clearDivs() {
     gameObject.divs.forEach(function(div) {
