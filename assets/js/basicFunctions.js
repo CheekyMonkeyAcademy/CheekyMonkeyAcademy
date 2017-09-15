@@ -6,7 +6,7 @@ var gameObject = {
         displayName: "",
         name: "",
         gifMovement: true, //TODO implement
-        userSex: ""
+        userSex: "",
         mathGame: {
             minNumber: "",
             maxNumber: "",
