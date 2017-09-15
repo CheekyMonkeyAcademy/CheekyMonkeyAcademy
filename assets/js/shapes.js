@@ -20,6 +20,8 @@ $(document).ready(function() {
         //assigning winning shape
         gameObject.shapesGame.correctShape = gameObject.shapesGame.fourRandomShapesArray[getRandomFrom(4)];
 
+        getWikipediaEntry(gameObject.shapesGame.correctShape);
+
         computerSayThis("Please click the shape for " + gameObject.shapesGame.correctShape);
     }
 

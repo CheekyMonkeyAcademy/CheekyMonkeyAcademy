@@ -1,3 +1,102 @@
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, .75);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: black;
+    display: block;
+    transition: 0.3s;
+    font-family: 'Gloria Hallelujah', cursive;
+}
+
+.sidenav a:hover,
+.offcanvas a:focus {
+    color: #1b7eeb;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+h1,
+span {
+    color: white;
+    text-shadow: 1.25px 1.25px #1b7eeb;
+}
+
+#resultbutton {
+    background-color: rgba(125, 255, 30, .8);
+    color: black;
+}
+
+
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+    .sidenav a {
+        font-size: 18px;
+    }
+}
+
+body {
+    /*background-color: rgba(28, 234, 243, .3);*/
+    background: #ff8235;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #30e8bf, #ff8235);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #30e8bf, #ff8235);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.gif {
+    padding: 15px;
+    
+}
+
+#div0 {
+    background-color: yellow;
+    border: 5px ridge #ff4b4b;
+    margin: 5px;
+}
+
+#div1 {
+    border: 5px ridge #e421ec;
+    margin: 5px;
+}
+
+#div2 {
+    border: 5px ridge #29f5f5;
+    margin: 5px;
+}
+
+#div3 {
+    background-color: orange;
+    border: 5px ridge #f0fa08;
+    margin: 5px;
+}
+
+
+
+
+
 /* Come up with a font style for the NavBar:
 	div id="mySidenav"
 	can use a tag for styling font
@@ -21,4 +120,4 @@ Animals has:
 
 Alphabet has:
 	h1 id=title with class text-center
-	div0 through 3 
+	div0 through 3

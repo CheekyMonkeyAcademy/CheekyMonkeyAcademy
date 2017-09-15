@@ -1,14 +1,17 @@
 var gameObject = {
 
     divs: ["div0", "div1", "div2", "div3"],
-    fourRandomShapesArray: [],
-    //firebase login based settings
     userSettings: {
         userId: "",
         displayName: "",
         name: "",
         gifMovement: true, //TODO implement
         userSex: ""
+        mathGame: {
+            minNumber: "",
+            maxNumber: "",
+            numberOfNumbers: ""
+        }
     },
     gamesMenu: [
         ["index.html", "Home"],
@@ -17,9 +20,10 @@ var gameObject = {
         ["colors.html", "Colors Game"],
         ["animals.html", "Animals Game"],
         ["numbers.html", "Numbers Game"],
-        ["places.html", "Places Game"]
+        ["math.html", "Math Game"],
+        ["places.html", "Places Game"],
+        ["login.html", "Login Menu"]
     ],
-    //
     timer: {
 
     },
@@ -98,23 +102,20 @@ var gameObject = {
             ]
         }
     },
-
-    // Animal Game array. Will re-activate upon animal.js cleanup 
-    // animalGame: {
-
-    //     correctAnimal: "ants",
-    //     fourRandomAnimalsArray: [],
-    //     animalArray: ["ants", "alpaca", "antelope", "Bat", "beaver", "panther", "dragonfly", "pigeon", "prairie Dog", "dolphin", "Eagle", "Fish",
-    //         "Goose", "Hawk", "Impala", "jackal", "elephant", "Kangaroo", "Lion", "lady bug",
-    //         "Monkey", "snail", "bird", "Ostrich", "Pig", "Quinling panda", "raccoon",
-    //         "Salamander", "owl", "squirrel", "seagull", "sealion", "Tiger", "Urchin", "Vulture", "wolf", "squirrel",
-    //         "mongoose", "Zebra"
-    //     ],
-    // },
+    animalGame: {
+        correctAnimal: "ants",
+        fourRandomAnimalsArray: [],
+        animalArray: ["ants", "alpaca", "antelope", "Bat", "beaver", "panther", "dragonfly", "pigeon", "prairie Dog", "dolphin", "Eagle", "Fish",
+            "Goose", "Hawk", "Impala", "jackal", "elephant", "Kangaroo", "Lion", "lady bug",
+            "Monkey", "snail", "bird", "Ostrich", "Pig", "Quinling panda", "raccoon",
+            "Salamander", "owl", "squirrel", "seagull", "sealion", "Tiger", "Urchin", "Vulture", "wolf", "squirrel",
+            "mongoose", "Zebra"
+        ],
+    },
     shapesGame: {
         correctShape: "Square",
         fourRandomShapesArray: [],
-        shapesArray: ["square", "circle", "triangle", "rectangle", "egg shaped", "diamond", "hexagon", "sphere", "rhombus", "star", "prism", "octogon", "zig zag", "bow tie"],
+        shapesArray: ["square", "circle", "triangle", "rectangle", "egg shaped", "diamond", "hexagon", "sphere", "rhombus", "star", "prism", "octogon", "zig zag", "bow tie", "pentagon", "trapezium", "cylinder", "cube", "cone", "decagon", "arrow", "dodecahedron"],
         // merge conflict fix - talk with Robert on this one - which is right    
         // shapesArray: ["Square", "Circle", "Triangle", "Rectangle", "Egg Shaped", "Diamond", "Polygon", "Sphere", "Rhombus", "Star", "Parallelogram"],
         colorArray: ["Red", "Blue", "Green", "Yellow", "Pink", "Black", "White", "Gold"]
@@ -131,12 +132,22 @@ var gameObject = {
             "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
         ]
     },
+   
     numbersGame: {
         correctNumber: "1",
         fourRandomNumbersArray: [],
         numbersArray: ["1", "2", "3", "4", "5", "6", "7", "8", "9"] // the number 0 has no giphy entry
+    },
+    mathGame: {
+        correctAnswer: "1",
+        correctQuestion: "",
+        fourRandomAnswersArray: [],
+        minNumber: 1,
+        maxNumber: 3,
+        numberOfNumbers: 2
     }
-}
+};
+
 
 function createMenu() {
     for (var i = 0; i < gameObject.gamesMenu.length; i++) {
@@ -174,14 +185,14 @@ function getGifAndAssignToDiv(searchTerm, div) {
 
             if (rating = "G") { // kids game, let's keep it clean - can variable this later.  
                 var thisP = $("<p>");
-                thisP.text(rating.toUpperCase());
+                // thisP.text(rating.toUpperCase());
                 var targetParent = $("#" + div);
                 var thisDiv = $("<div>");
                 var thisGif = $("<img>");
                 thisGif.attr("src", movingUrl);
                 thisGif.attr("moving_url", movingUrl);
                 thisGif.attr("static_url", stillUrl);
-                thisGif.attr("current_state", "moving")
+                thisGif.attr("current_state", "moving");
                 thisGif.attr("assigned_thing", searchTerm);
                 thisGif.attr("class", "gif");
                 thisDiv.prepend(thisP);
@@ -191,6 +202,7 @@ function getGifAndAssignToDiv(searchTerm, div) {
         });
     });
 }
+
 
 function clearDivs() {
     gameObject.divs.forEach(function(div) {
@@ -204,8 +216,15 @@ function getRandomFrom(thisNumber) {
     return returnValue;
 }
 
+function getRandomFromMinMax(minNumber, maxNumber) {
+    maxNumber++ // this allows us to hit the max number
+    var returnValue = Math.floor(Math.random() * (maxNumber - minNumber)) + minNumber;
+    return returnValue;
+}
+
 function computerSayThis(thingsToSay) {
     var msg = new SpeechSynthesisUtterance(thingsToSay);
+    var voices = window.speechSynthesis.getVoices(msg);
     window.speechSynthesis.speak(msg);
 }
 
@@ -236,3 +255,28 @@ function getMessageForComputerToSay(successOrFailure) {
 
     computerSayThis(returnMessage);
 }
+
+ function getWikipediaEntry(searchTerm) {
+    
+    var url =
+      "https://en.wikipedia.org/w/api.php?action=opensearch&search=" +
+      searchTerm +
+      "&format=json&callback=?&limit=1";
+    $.ajax({
+      type: "GET",
+      url: url,
+      async: false,
+      dataType: "json",
+      
+      success: function(data) {
+      
+        $("#resultbutton").attr("href", data[3][0]);
+        $("#resultbutton").html("Search Wikipedia for: " + searchTerm);
+  },
+      error: function(error) {
+        alert("error");
+      }
+    }); //ajax ends
+  }
+
+
