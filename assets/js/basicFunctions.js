@@ -163,8 +163,12 @@ function createMenu() {
         var newMenuItem = $("<a>");
         newMenuItem.attr("href", gameObject.gamesMenu[i][0]);
         newMenuItem.text(gameObject.gamesMenu[i][1]);
+        newMenuItem.addClass("clickyMenu");
         $("#mySidenav").append(newMenuItem);
+
     }
+
+
 }
 
 function openNav() {
