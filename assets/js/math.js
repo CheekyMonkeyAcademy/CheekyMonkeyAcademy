@@ -34,7 +34,7 @@ $(document).ready(function() {
         gameObject.mathGame.correctAnswer = gameObject.mathGame.fourRandomAnswersArray[thisRandom][1].toString();
         gameObject.mathGame.correctQuestion = gameObject.mathGame.fourRandomAnswersArray[thisRandom][0];
         // voice active asking kids to find said letter
-        computerSayThis("Please click the answer to " + gameObject.mathGame.correctQuestion);
+        computerSayThis("Please click the answer"); //... this is just too long with the current voice to " + gameObject.mathGame.correctQuestion);
         $("#questionGoesHere").html("Solve this: <br>" + gameObject.mathGame.correctQuestion);
     }
 
@@ -47,11 +47,6 @@ $(document).ready(function() {
             var minNumber = gameObject.mathGame.minNumber;
             var maxNumber = gameObject.mathGame.maxNumber;
             var numberOfNumbers = gameObject.mathGame.numberOfNumbers;
-
-            var addition = true; // TODO stub for later - maybe
-            var subtraction = false; // TODO stub for later - maybe
-            var multiplication = false; // TODO stub for later - maybe
-            var division = false; // TODO stub for later - maybe
 
             // addition
             for (num = 0; num < numberOfNumbers; num++) {
