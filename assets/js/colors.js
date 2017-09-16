@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	createMenu(); 
-
+    computerSayThis("Welcome " + gameObject.userSettings.name + " let's play the Color Matching Game!")
 // Create a click event that will start the game
 $("#gameStart").hide();
 $("#start-game-btn").on("click", function(){
@@ -56,8 +56,10 @@ dropLoc.on("drop", function(event){
 				console.log("It's Dropped!!");
 				completionModalCounter --
 				console.log(completionModalCounter);
+				getMessageForComputerToSay("success");
 					if(completionModalCounter === 0){
 						$('#youWin').modal();
+						computerSayThis("You won the colors game!  Congratulations!");
 					}
 
 				//Get dropped image to disappear from the imageContainer
@@ -69,12 +71,14 @@ dropLoc.on("drop", function(event){
 			} else if ($(this).attr("status") === "filled") {
 				//alert("Choose another box");
 				$('#fullBox').modal();
+				getMessageForComputerToSay("failure");
 
 			} //End of inner else statement on 53
 		//End of line 43 if statement is on line 56
 		} else {
 			// alert("try again");
 			$('#wrongBoxColor').modal();
+			getMessageForComputerToSay("failure");
 		}
 	})//This is the end of the on drop function on line 34
 

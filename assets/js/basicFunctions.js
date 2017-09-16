@@ -216,7 +216,6 @@ function getGifAndAssignToDiv(searchTerm, div) {
 function clearDivs() {
     gameObject.divs.forEach(function(div) {
         $("#" + div).empty();
-        console.log("emptying: " + div);
     });
 }
 
@@ -245,7 +244,6 @@ function getMessageForComputerToSay(successOrFailure) {
     messageArray = gameObject.message.general[successOrFailure];
 
     if (gameObject.userSettings.name != "") {
-        console.log("we have a name - it is: " + gameObject.userSettings.name);
         tempArray = messageArray.concat(gameObject.message.name[successOrFailure]);
         messageArray = tempArray;
     }
@@ -266,7 +264,6 @@ function getMessageForComputerToSay(successOrFailure) {
 }
 
  function getWikipediaEntry(searchTerm) {
-    
     var url =
       "https://en.wikipedia.org/w/api.php?action=opensearch&search=" +
       searchTerm +

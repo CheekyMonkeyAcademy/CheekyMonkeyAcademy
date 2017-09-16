@@ -20,7 +20,7 @@ $(document).ready(function() {
         // assign our 'winning' letter for this round
         gameObject.alphabetGame.correctLetter = gameObject.alphabetGame.fourRandomLettersArray[getRandomFrom(4)];
         // voice active asking kids to find said letter
-        computerSayThis("Please click the image for " + gameObject.alphabetGame.correctLetter);
+        computerSayThis("Please click " + gameObject.alphabetGame.correctLetter);
     }
 
     function getFourRandomLettersIntoArray() {
