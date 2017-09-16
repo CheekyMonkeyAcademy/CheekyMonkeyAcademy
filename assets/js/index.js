@@ -44,7 +44,7 @@ $(document).ready(function() {
                     gameObject.userSettings.email = user.email;
                     gameObject.userSettings.emailVerified = user.emailVerified;
                     gameObject.userSettings.name = user.name;
-                });
+                })
             } else {
                 // User is signed out.
                 $("#signOutButton").addClass("hidden");
