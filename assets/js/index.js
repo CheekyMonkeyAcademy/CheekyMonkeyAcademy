@@ -24,6 +24,12 @@ $(document).ready(function() {
         initApp()
     });
 
+    $('#nameInput').val(gameObject.userSettings.name);
+
+    $('#mySideNav').on("click", ".clickyMenu", function(){
+        gameObject.userSettings.name = $('#nameInput').val();
+    });
+
     initApp = function() {
         firebase.auth().onAuthStateChanged(function(user) {
             if (user) {
