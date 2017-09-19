@@ -79,7 +79,7 @@ $(document).ready(function() {
     function validateUser() {
         database.ref().on("value", function(snapshot) {
             if (snapshot.child("users/" + gameObject.userSettings.userId).exists()) {
-                UpdateUserInFirebase();
+                //UpdateUserInFirebase();
             }
             else {
                 firebase.database().ref("users/" + gameObject.userSettings.userId).set({
