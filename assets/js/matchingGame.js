@@ -33,7 +33,7 @@ $("#makeCards").on("click", function(){
     //STEP 2: Randomly grab sports from the array
     function chooseSportAtRandom(){
     	var randomSports = gameObject.matchGame.sportsArray[getRandomFrom(gameObject.matchGame.sportsArray.length)];
-    // console.log(randomSports + " This is Random Sport");
+    console.log(randomSports + " This is Random Sport");
     return randomSports;
     	//SIDE NOTE: return statements cease execution in a function and return a value to the caller
 	}
@@ -140,13 +140,16 @@ $("#makeCards").on("click", function(){
 	function captureSportsandPushIntoSelectedSportsArray() {
 		gameObject.matchGame.selectedSportsArray = [];
 		for (var h = 0; h < gameObject.matchGame[0]; h++) {
-				gameObject.matchGame.selectedSportsArray.push(gameObject.matchGame.sportsArray[chooseSportAtRandom].length);
+				// gameObject.matchGame.selectedSportsArray.push(gameObject.matchGame.sportsArray[chooseSportAtRandom].length);
+				gameObject.matchGame.selectedSportsArray.push(numberOfSports);
 				console.log(selectedSportsArray + " Selected Array");
+				console.log("Working");
 		}
 		// console.log(selectedSportsArray + " Selected Array");
 	} //End of captureSportsandPushIntoSelectedSportsArray FXN
 
 	captureSportsandPushIntoSelectedSportsArray();
+
 
 	
 
